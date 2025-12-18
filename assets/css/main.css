@@ -1,32 +1,336 @@
-.navbar {
-	margin-bottom: 0;
-	border-bottom: 1px solid rgb(200,200,200);
-	border-radius: 0;
-	box-shadow: 0 2px 5px rgb(230,230,230);
+/* ========================================
+   COLOR VARIABLES - Easy to modify!
+   ======================================== */
+
+:root {
+  /* Cuchilleras Section - Creative & Artistic */
+  --cuchilleras-primary: #E63946;
+  --cuchilleras-secondary: #F4A261;
+  --cuchilleras-accent: #E76F51;
+  --cuchilleras-bg: #FFF8F3;
+  --cuchilleras-text: #2B2D42;
+  --cuchilleras-light: #FFF5EB;
+
+  /* FLIPAR Section - Modern & Minimalist */
+  --flipar-primary: #457B9D;
+  --flipar-secondary: #1D3557;
+  --flipar-accent: #A8DADC;
+  --flipar-bg: #F1FAEE;
+  --flipar-text: #1D3557;
+  --flipar-light: #F8FFFE;
+
+  /* Shared/Neutral Colors */
+  --neutral-white: #FFFFFF;
+  --neutral-black: #000000;
+  --neutral-gray-light: #F5F5F5;
+  --neutral-gray: #E0E0E0;
+  --neutral-gray-dark: #757575;
+
+  /* Typography */
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
 }
 
-.navbar-brand { /* Logo in navbar*/
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.bg-gradient {
-	background-image: linear-gradient(0deg, rgb(240,240,240) 0%, rgb(255,255,255) 100%);
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--neutral-black);
+  background-color: var(--neutral-white);
 }
 
-.active-tab {
-	color: red;
-	background-color: rgb(240,240,240);
-	box-shadow: inset 0 2px 10px rgb(200,200,200);
-	text-shadow: -1px 1px 1px rgba(255,255,255,.8);
+/* ========================================
+   LANDING PAGE - SECTION SELECTOR
+   ======================================== */
+
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
+  padding: 2rem;
 }
 
-.cite {
-	margin-top: 10px;
-	border: 1px solid rgb(235,235,235);
-	border-radius: 5px;
-	box-shadow: inset 0 0px 2px rgb(235,235,235);
-	background-color: rgb(245,245,245);
+.landing-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.landing-title {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-subtitle {
+  font-size: 1.2rem;
+  color: var(--neutral-gray-dark);
+  font-weight: 300;
+}
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.section-card {
+  position: relative;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 350px;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.section-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.section-card:hover::before {
+  opacity: 0.2;
+}
+
+.section-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cuchilleras Card - Creative & Artistic */
+.section-card.cuchilleras {
+  background: linear-gradient(135deg, var(--cuchilleras-bg) 0%, var(--cuchilleras-light) 100%);
+  border: 3px solid var(--cuchilleras-primary);
+  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
+}
+
+.section-card.cuchilleras::before {
+  background: radial-gradient(circle at top right, var(--cuchilleras-accent), transparent);
+}
+
+.section-card.cuchilleras .section-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(3px 3px 6px rgba(230, 57, 70, 0.3));
+}
+
+.section-card.cuchilleras .section-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cuchilleras-primary);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(230, 57, 70, 0.1);
+}
+
+.section-card.cuchilleras .section-description {
+  color: var(--cuchilleras-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* FLIPAR Card - Modern & Minimalist */
+.section-card.flipar {
+  background: linear-gradient(135deg, var(--flipar-bg) 0%, var(--flipar-light) 100%);
+  border: 2px solid var(--flipar-accent);
+  box-shadow: 0 10px 30px rgba(69, 123, 157, 0.15);
+}
+
+.section-card.flipar::before {
+  background: linear-gradient(135deg, var(--flipar-accent), transparent);
+}
+
+.section-card.flipar .section-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(69, 123, 157, 0.2));
+}
+
+.section-card.flipar .section-title {
+  font-family: var(--font-main);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--flipar-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.section-card.flipar .section-description {
+  color: var(--flipar-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   CUCHILLERAS SECTION PAGE
+   ======================================== */
+
+.cuchilleras-page {
+  min-height: 100vh;
+  background: var(--cuchilleras-bg);
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(244, 162, 97, 0.05) 0%, transparent 50%);
+}
+
+.cuchilleras-nav {
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--cuchilleras-accent));
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.cuchilleras-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* ========================================
+   FLIPAR SECTION PAGE
+   ======================================== */
+
+.flipar-page {
+  min-height: 100vh;
+  background: var(--flipar-bg);
+}
+
+.flipar-nav {
+  background: var(--neutral-white);
+  border-bottom: 1px solid var(--flipar-accent);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(69, 123, 157, 0.1);
+}
+
+.flipar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ========================================
+   NAVIGATION STYLES
+   ======================================== */
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--neutral-white);
+}
+
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: var(--neutral-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-back:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+/* FLIPAR specific nav colors */
+.flipar-nav .nav-logo {
+  color: var(--flipar-primary);
+}
+
+.flipar-nav .nav-back {
+  background: var(--flipar-accent);
+  color: var(--flipar-primary);
+  border-color: var(--flipar-primary);
+}
+
+.flipar-nav .nav-back:hover {
+  background: var(--flipar-primary);
+  color: var(--neutral-white);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+
+  .sections-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-card {
+    min-height: 300px;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-title {
+    font-size: 2rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-card {
+    padding: 2rem 1.5rem;
+  }
 }
