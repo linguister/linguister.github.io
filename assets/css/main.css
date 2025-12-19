@@ -565,7 +565,7 @@ body {
     padding: 0 16px;
     opacity: 1;
     transition: opacity 0.3s ease, width 0.3s ease;
-    white-space: nowrap;
+    white-space: pre;
     overflow: hidden;
   }
 
@@ -626,7 +626,7 @@ body {
   }
 
   .site-header.scrolled .landing-title {
-    font-size: 16px;
+    font-size: 16px; /* Linguister font size when scrolled */
     padding: 0 12px 0 12px;
     clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
   }
