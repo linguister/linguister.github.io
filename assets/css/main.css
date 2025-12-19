@@ -205,8 +205,17 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.section-card:hover::after {
-  animation: glitter-sweep 1.2s ease-in-out;
+.section-card::after {
+  animation: glitter-sweep 5s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.section-card.cuchilleras::after {
+  animation-delay: 0s;
+}
+
+.section-card.flipar::after {
+  animation-delay: 2.5s;
 }
 
 @keyframes glitter-sweep {
@@ -214,11 +223,15 @@ body {
     left: -150%;
     opacity: 0;
   }
-  10% {
+  3% {
     opacity: 1;
   }
-  90% {
+  27% {
     opacity: 1;
+  }
+  30% {
+    left: 150%;
+    opacity: 0;
   }
   100% {
     left: 150%;
