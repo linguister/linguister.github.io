@@ -16,6 +16,17 @@ const TYPEWRITER_CONFIG = {
 document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
+  // GRASS WIND BACKGROUND INITIALIZATION
+  // ============================================
+
+  const landingContainer = document.querySelector('.landing-container');
+  let grassWindInstance = null;
+
+  if (landingContainer && typeof initGrassWindBackground !== 'undefined') {
+    grassWindInstance = initGrassWindBackground(landingContainer);
+  }
+
+  // ============================================
   // SECTION NAVIGATION
   // Handles switching between landing view and section content
   // ============================================

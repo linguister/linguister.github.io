@@ -1,0 +1,31 @@
+/* ============================================
+   GRASS-IN-WIND BACKGROUND MODULE
+   Vector-field animated background for .landing-container
+   ============================================ */
+
+/* Canvas container - positioned behind all content */
+.grass-wind-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Ensure landing container content is above the canvas */
+.landing-container {
+  position: relative;
+}
+
+.landing-container > *:not(.grass-wind-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .grass-wind-canvas {
+    opacity: 0.5;
+  }
+}
