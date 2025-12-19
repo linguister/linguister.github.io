@@ -231,6 +231,132 @@ body {
   background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
   padding: 32px;
   padding-top: 100px;
+  position: relative;
+}
+
+/* ========================================
+   LANDING HERO SECTION
+   Minimalistic centered content with quotes
+   ======================================== */
+
+.landing-hero {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-quote {
+  text-align: center;
+  padding: 0 24px;
+}
+
+.quote-main {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.quote-main::before {
+  content: '“';
+  position: absolute;
+  left: -30px;
+  top: -20px;
+  opacity: 0.3;
+  font-size: 120px;
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.quote-main::after {
+  content: '”';
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  opacity: 0.3;
+  font-size: 120px;
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.quote-secondary {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--neutral-gray-dark);
+  font-weight: 300;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.landing-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  animation: floatUp 2s ease-in-out infinite;
+}
+
+.landing-cta:hover {
+  opacity: 1;
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.cta-text {
+  font-size: 1rem;
+  color: var(--neutral-gray-dark);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  /* text-transform: lowercase; */
+}
+
+.cta-arrow {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
 }
 
 /* ========================================
@@ -557,6 +683,33 @@ body {
 
   .landing-title {
     font-size: 40px;
+  }
+
+  /* Landing page responsive adjustments */
+  .quote-main {
+    font-size: 28px;
+    padding: 0 16px;
+  }
+
+  .quote-main::before {
+    font-size: 80px;
+    left: -15px;
+    top: -10px;
+  }
+
+  .quote-main::after {
+    font-size: 80px;
+    right: -15px;
+    bottom: -25px;
+  }
+
+  .quote-secondary {
+    font-size: 18px;
+    padding: 0 8px;
+  }
+
+  .landing-hero {
+    gap: 60px;
   }
 
   /* ========================================
