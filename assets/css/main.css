@@ -352,11 +352,21 @@ body {
   background: var(--cuchilleras-bg);
   border: 2px solid var(--cuchilleras-primary);
   box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  transition: box-shadow 0.3s ease;
+}
+
+.section-card.cuchilleras:hover {
+  box-shadow: 0 2px 5px var(--cuchilleras-primary);
 }
 
 .section-card.cuchilleras .section-title {
   color: var(--cuchilleras-primary);
   text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  transition: text-shadow 0.3s ease;
+}
+
+.section-card.cuchilleras:hover .section-title {
+  text-shadow: 1px 1px 2px color-mix(in srgb, var(--cuchilleras-primary), transparent 50%);
 }
 
 .section-card.cuchilleras .section-title .digraph {
@@ -370,11 +380,21 @@ body {
   background: var(--flipar-bg);
   border: 2px solid var(--flipar-primary);
   box-shadow: 0 4px 10px color-mix(in srgb, var(--flipar-primary), transparent 80%);
+  transition: box-shadow 0.3s ease;
+}
+
+.section-card.flipar:hover {
+  box-shadow: 0 2px 5px var(--flipar-primary);
 }
 
 .section-card.flipar .section-title {
   color: var(--flipar-primary);
   text-shadow: 2px 2px 4px color-mix(in srgb, var(--flipar-primary), transparent 80%);
+  transition: text-shadow 0.3s ease;
+}
+
+.section-card.flipar:hover .section-title {
+  text-shadow: 1px 1px 2px color-mix(in srgb, var(--flipar-primary), transparent 50%);
 }
 
 /* ========================================
