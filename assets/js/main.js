@@ -2,6 +2,61 @@
 // Handles smooth interactions and animations
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Typewriter animation - reusable function
+  function createTypewriter(element, words, startDelay = 0) {
+    let wordIndex = 0;
+    let isDeleting = false;
+    let currentText = '';
+    let charIndex = 0;
+
+    function typeWriter() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        // Delete from right to left
+        currentText = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(typeWriter, 200); // Pause before typing next word
+          element.textContent = currentText;
+          return;
+        }
+      } else {
+        // Type from left to right
+        currentText = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(typeWriter, 2000); // Pause at end of word
+          element.textContent = currentText;
+          return;
+        }
+      }
+
+      element.textContent = currentText;
+      setTimeout(typeWriter, isDeleting ? 100 : 150); // Typing speed
+    }
+
+    // Start the animation with optional delay
+    setTimeout(typeWriter, startDelay);
+  }
+
+  // Typewriter animation for por/para
+  const typewriter1 = document.querySelector('.typewriter-1');
+  if (typewriter1) {
+    createTypewriter(typewriter1, ['por', 'para'], 0);
+  }
+
+  // Typewriter animation for escritura/lógica
+  const typewriter2 = document.querySelector('.typewriter-2');
+  if (typewriter2) {
+    createTypewriter(typewriter2, ['escritura', 'lógica'], 500);
+  }
+
   // Add smooth scroll behavior
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
