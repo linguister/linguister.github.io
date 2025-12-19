@@ -46,14 +46,14 @@
   --cuchilleras-primary: rgb(91, 111, 163);
   --cuchilleras-secondary: rgb(155, 186, 246);
   --cuchilleras-accent: rgb(255, 165, 50);
-  --cuchilleras-text: rgb(43, 45, 66);
+  --cuchilleras-border: rgb(43, 45, 66);
   --cuchilleras-bg: rgb(244, 247, 255);
 
   /* FLIPAR Section Theme */
   --flipar-primary: rgb(204, 85, 0);
   --flipar-secondary: rgb(255, 140, 0);
   --flipar-accent: rgb(0, 191, 255);
-  --flipar-text: rgb(102, 51, 0);
+  --flipar-border: rgb(102, 51, 0);
   --flipar-bg: rgb(255, 248, 237);
 
   /* Neutral Colors */
@@ -487,9 +487,10 @@ body {
 
 .section-card.cuchilleras {
   background: var(--cuchilleras-bg);
-  border: 2px solid var(--cuchilleras-primary);
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  border: 2px solid var(--cuchilleras-border);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-border), transparent 80%);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  -webkit-text-stroke: 1px var(--cuchilleras-border);
 }
 
 .section-card.cuchilleras:hover {
@@ -512,8 +513,13 @@ body {
 
 .section-card.cuchilleras .section-title .digraph {
   color: var(--cuchilleras-accent);
-  -webkit-text-stroke: 1px var(--cuchilleras-primary);
-  text-shadow: none;
+  -webkit-text-stroke: 1px var(--cuchilleras-border);
+  text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  transition: text-shadow 0.3s ease;
+}
+
+.section-card.cuchilleras:hover .section-title .digraph {
+  text-shadow: 1px 1px 2px color-mix(in srgb, var(--cuchilleras-primary), transparent 50%);
 }
 
 /* ========================================
@@ -522,9 +528,10 @@ body {
 
 .section-card.flipar {
   background: var(--flipar-bg);
-  border: 2px solid var(--flipar-primary);
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--flipar-primary), transparent 80%);
+  border: 2px solid var(--flipar-border);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--flipar-border), transparent 80%);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  -webkit-text-stroke: 1px var(--flipar-border);
 }
 
 .section-card.flipar:hover {
