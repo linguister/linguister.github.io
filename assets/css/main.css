@@ -36,20 +36,18 @@
 
 :root {
   /* Cuchilleras Section - Creative & Artistic */
-  --cuchilleras-primary: rgb(230, 57, 70);
-  --cuchilleras-secondary: rgb(244, 162, 97);
-  --cuchilleras-accent: rgb(231, 111, 81);
-  --cuchilleras-bg: rgb(255, 248, 243);
+  --cuchilleras-primary: rgb(91, 111, 163);
+  --cuchilleras-secondary: rgb(155, 186, 246);
+  --cuchilleras-accent: rgb(141, 150, 106);
   --cuchilleras-text: rgb(43, 45, 66);
-  --cuchilleras-light: rgb(255, 245, 235);
+  --cuchilleras-bg: rgb(244, 247, 255);
 
   /* FLIPAR Section - Modern & Minimalist */
-  --flipar-primary: rgb(69, 123, 157);
-  --flipar-secondary: rgb(29, 53, 87);
-  --flipar-accent: rgb(168, 218, 220);
-  --flipar-bg: rgb(241, 250, 238);
-  --flipar-text: rgb(29, 53, 87);
-  --flipar-light: rgb(248, 255, 254);
+  --flipar-primary: rgb(204, 85, 0);
+  --flipar-secondary: rgb(255, 140, 0);
+  --flipar-accent: rgb(255, 193, 7);
+  --flipar-text: rgb(102, 51, 0);
+  --flipar-bg: rgb(255, 248, 237);
 
   /* Shared/Neutral Colors */
   --neutral-white: rgb(255, 255, 255);
@@ -119,7 +117,7 @@ body {
 }
 
 .title-gradient {
-  background: linear-gradient(135deg, var(--cuchilleras-secondary), var(--flipar-secondary));
+  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -200,9 +198,9 @@ body {
 
 /* Cuchilleras Card - Creative & Artistic */
 .section-card.cuchilleras {
-  background: linear-gradient(135deg, var(--cuchilleras-bg) 0%, var(--cuchilleras-light) 100%);
+  background: linear-gradient(135deg, var(--cuchilleras-bg) 0%, var(--cuchilleras-bg) 100%);
   border: 3px solid var(--cuchilleras-primary);
-  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
 .section-card.cuchilleras::before {
@@ -212,7 +210,7 @@ body {
 .section-card.cuchilleras .section-icon {
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(3px 3px 6px rgba(230, 57, 70, 0.3));
+  filter: drop-shadow(3px 3px 6px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%));
 }
 
 .section-card.cuchilleras .section-title {
@@ -221,7 +219,7 @@ body {
   font-weight: 700;
   color: var(--cuchilleras-primary);
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(230, 57, 70, 0.1);
+  text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
 .section-card.cuchilleras .section-description {
@@ -232,28 +230,28 @@ body {
 
 /* FLIPAR Card - Modern & Minimalist */
 .section-card.flipar {
-  background: linear-gradient(135deg, var(--flipar-bg) 0%, var(--flipar-light) 100%);
-  border: 2px solid var(--flipar-accent);
-  box-shadow: 0 10px 30px rgba(69, 123, 157, 0.15);
+  background: linear-gradient(135deg, var(--flipar-bg) 0%, var(--flipar-bg) 100%);
+  border: 3px solid var(--flipar-primary);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
 
 .section-card.flipar::before {
-  background: linear-gradient(135deg, var(--flipar-accent), transparent);
+  background: radial-gradient(circle at top right, var(--flipar-accent), transparent);
 }
 
 .section-card.flipar .section-icon {
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(2px 2px 4px rgba(69, 123, 157, 0.2));
+  filter: drop-shadow(3px 3px 6px color-mix(in srgb, var(--flipar-primary), transparent 80%));
 }
 
 .section-card.flipar .section-title {
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--flipar-primary);
   margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
 
 .section-card.flipar .section-description {
