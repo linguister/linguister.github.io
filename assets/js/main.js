@@ -1,7 +1,9 @@
+// ============================================
 // Linguister - Main JavaScript
-// Handles smooth interactions and animations
+// Handles section navigation, typewriter animations, and mobile scroll behavior
+// ============================================
 
-// Configuration - Easy to modify typewriter words
+// Configuration for typewriter animation words
 const TYPEWRITER_CONFIG = {
   words1: ['por', 'para'],
   words2: ['escritura', 'lógica'],
@@ -12,33 +14,39 @@ const TYPEWRITER_CONFIG = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Section switching functionality
+
+  // ============================================
+  // SECTION NAVIGATION
+  // Handles switching between landing view and section content
+  // ============================================
+
   const cards = document.querySelectorAll('.section-card');
   const landingView = document.getElementById('landing-view');
   const sectionContents = document.querySelectorAll('.section-content');
+  const headerTitle = document.querySelector('.site-header .landing-title');
 
-  // Handle card clicks to show section content
+  // Card click handler - shows section content
   cards.forEach(card => {
     card.addEventListener('click', function() {
       const sectionName = this.getAttribute('data-section');
       const sectionContent = document.getElementById(sectionName + '-content');
 
       if (sectionContent) {
-        // Hide landing view and show section content
+        // Hide landing view and show selected section
         landingView.style.display = 'none';
         sectionContent.style.display = 'block';
 
-        // Hide other section contents
+        // Hide other sections
         sectionContents.forEach(content => {
           if (content.id !== sectionName + '-content') {
             content.style.display = 'none';
           }
         });
 
-        // Change body class for background styling
+        // Update body class for section-specific styling
         document.body.className = sectionName + '-page';
 
-        // Update card states - add inactive class to other cards
+        // Update card states (active/inactive)
         cards.forEach(c => {
           if (c.getAttribute('data-section') === sectionName) {
             c.classList.remove('inactive');
@@ -52,8 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Add back button functionality to the logo/title
-  const headerTitle = document.querySelector('.site-header .landing-title');
+  // Header title click handler - returns to landing view
   if (headerTitle) {
     headerTitle.style.cursor = 'pointer';
     headerTitle.addEventListener('click', function(e) {
@@ -78,7 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Typewriter animation - reusable function
+  // ============================================
+  // TYPEWRITER ANIMATION
+  // Animates switching between word pairs in the subtitle
+  // ============================================
+
   function createTypewriter(element, words, startDelay = 0) {
     let wordIndex = 0;
     let isDeleting = false;
@@ -89,51 +100,55 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentWord = words[wordIndex];
 
       if (isDeleting) {
-        // Delete from right to left
+        // Delete characters from right to left
         currentText = currentWord.substring(0, charIndex - 1);
         charIndex--;
 
         if (charIndex === 0) {
+          // Finished deleting, move to next word
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(typeWriter, 200); // Pause before typing next word
+          setTimeout(typeWriter, 200);
           element.textContent = currentText;
           return;
         }
       } else {
-        // Type from left to right
+        // Type characters from left to right
         currentText = currentWord.substring(0, charIndex + 1);
         charIndex++;
 
         if (charIndex === currentWord.length) {
+          // Finished typing, pause then start deleting
           isDeleting = true;
-          setTimeout(typeWriter, 2000); // Pause at end of word
+          setTimeout(typeWriter, 2000);
           element.textContent = currentText;
           return;
         }
       }
 
       element.textContent = currentText;
-      setTimeout(typeWriter, isDeleting ? 100 : 150); // Typing speed
+      setTimeout(typeWriter, isDeleting ? 100 : 150);
     }
 
-    // Start the animation with optional delay
+    // Start animation with optional delay
     setTimeout(typeWriter, startDelay);
   }
 
-  // Typewriter animation for por/para
+  // Initialize typewriter animations
   const typewriter1 = document.querySelector('.typewriter-1');
   if (typewriter1) {
     createTypewriter(typewriter1, TYPEWRITER_CONFIG.words1, TYPEWRITER_CONFIG.delays.start1);
   }
 
-  // Typewriter animation for escritura/lógica
   const typewriter2 = document.querySelector('.typewriter-2');
   if (typewriter2) {
     createTypewriter(typewriter2, TYPEWRITER_CONFIG.words2, TYPEWRITER_CONFIG.delays.start2);
   }
 
-  // Add smooth scroll behavior
+  // ============================================
+  // SMOOTH SCROLL FOR ANCHOR LINKS
+  // ============================================
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -146,8 +161,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ============================================
+  // FADE-IN ANIMATION FOR SECTIONS
+  // Uses Intersection Observer for performance
+  // ============================================
 
-  // Add fade-in animation for content
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -162,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, observerOptions);
 
-  // Observe sections for fade-in animation
+  // Apply fade-in to all sections
   document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
@@ -170,7 +188,11 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(section);
   });
 
-  // Mobile scroll header transformation
+  // ============================================
+  // MOBILE SCROLL HEADER TRANSFORMATION
+  // Compacts navigation bar on scroll (mobile only)
+  // ============================================
+
   let scrollTimeout;
 
   function handleScroll() {
@@ -178,23 +200,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.site-header');
     const sectionsGrid = document.querySelector('.sections-grid');
 
-    // Only apply on mobile (max-width: 768px)
+    // Only apply transformation on mobile devices
     if (window.innerWidth <= 768) {
       if (scrollY > 50) {
-        // Scrolled state - add class
+        // Add scrolled state after scrolling 50px
         header.classList.add('scrolled');
         if (sectionsGrid) {
           sectionsGrid.classList.add('scrolled');
         }
       } else {
-        // Top of page - remove class
+        // Remove scrolled state when at top
         header.classList.remove('scrolled');
         if (sectionsGrid) {
           sectionsGrid.classList.remove('scrolled');
         }
       }
     } else {
-      // Remove classes on desktop
+      // Remove scrolled classes on desktop
       header.classList.remove('scrolled');
       if (sectionsGrid) {
         sectionsGrid.classList.remove('scrolled');
@@ -202,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Throttled scroll listener for performance
+  // Throttled scroll listener using requestAnimationFrame for performance
   window.addEventListener('scroll', function() {
     if (scrollTimeout) {
       window.cancelAnimationFrame(scrollTimeout);
@@ -210,6 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTimeout = window.requestAnimationFrame(handleScroll);
   }, { passive: true });
 
-  // Also handle on resize
+  // Handle window resize to adjust scroll behavior
   window.addEventListener('resize', handleScroll);
 });

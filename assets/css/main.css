@@ -1,6 +1,12 @@
+/* ============================================
+   LINGUISTER - MAIN STYLESHEET
+   A single-page language creation website
+   ============================================ */
+
 /* ========================================
-  FONT FACE DECLARATIONS
-  ======================================== */
+   FONT FACE DECLARATIONS
+   Cuchilleras variable font family
+   ======================================== */
 
 @font-face {
   font-family: 'Cuchilleras';
@@ -31,26 +37,26 @@
 }
 
 /* ========================================
-  COLOR VARIABLES - Easy to modify!
-  ======================================== */
+   CSS CUSTOM PROPERTIES
+   Centralized theme colors and fonts
+   ======================================== */
 
 :root {
-  /* Cuchilleras Section - Creative & Artistic */
+  /* Cuchilleras Section Theme */
   --cuchilleras-primary: rgb(91, 111, 163);
   --cuchilleras-secondary: rgb(155, 186, 246);
   --cuchilleras-accent: rgb(255, 165, 50);
   --cuchilleras-text: rgb(43, 45, 66);
   --cuchilleras-bg: rgb(244, 247, 255);
 
-  /* FLIPAR Section - Modern & Minimalist */
+  /* FLIPAR Section Theme */
   --flipar-primary: rgb(204, 85, 0);
   --flipar-secondary: rgb(255, 140, 0);
   --flipar-accent: rgb(0, 191, 255);
-  /* --flipar-accent: rgb(255, 193, 7); */
   --flipar-text: rgb(102, 51, 0);
   --flipar-bg: rgb(255, 248, 237);
 
-  /* Shared/Neutral Colors */
+  /* Neutral Colors */
   --neutral-white: rgb(255, 255, 255);
   --neutral-black: rgb(0, 0, 0);
   --neutral-gray-light: rgb(245, 245, 245);
@@ -63,8 +69,8 @@
 }
 
 /* ========================================
-  GLOBAL STYLES
-  ======================================== */
+   GLOBAL STYLES
+   ======================================== */
 
 * {
   margin: 0;
@@ -80,8 +86,10 @@ body {
 }
 
 /* ========================================
-  SITE HEADER - FIXED TOP BAR
-  ======================================== */
+   FIXED HEADER NAVIGATION
+   Desktop: Left side title/subtitle, right side cards
+   Mobile: Two-row layout that compacts on scroll
+   ======================================== */
 
 .site-header {
   position: fixed;
@@ -108,20 +116,11 @@ body {
 }
 
 /* ========================================
-  LANDING PAGE - SECTION SELECTOR
-  ======================================== */
+   TITLE & SUBTITLE STYLING
+   Gradient text effect with shadow outline
+   ======================================== */
 
-.landing-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
-  padding: 32px;
-  padding-top: 100px;
-}
-
+/* Desktop header title */
 .site-header .landing-title {
   font-family: var(--font-display);
   font-size: 40px;
@@ -137,6 +136,7 @@ body {
   clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%);
 }
 
+/* Landing page title (not in header) */
 .landing-title {
   font-family: var(--font-display);
   font-size: 56px;
@@ -147,6 +147,7 @@ body {
   height: 56px;
 }
 
+/* Gradient and shadow text layers */
 .site-header .title-gradient,
 .site-header .title-black {
   white-space: nowrap;
@@ -194,6 +195,7 @@ body {
   -webkit-text-stroke: 1px var(--neutral-gray);
 }
 
+/* Subtitle with typewriter animation */
 .site-header .landing-subtitle {
   font-size: 24px;
   color: var(--neutral-gray-dark);
@@ -202,7 +204,7 @@ body {
   white-space: pre;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  padding: 0 16px;
 }
 
 .landing-subtitle {
@@ -213,9 +215,29 @@ body {
 
 .typewriter {
   display: inline-block;
-  /* text-align: left; */
   color: var(--neutral-gray-dark);
 }
+
+/* ========================================
+   LANDING PAGE CONTAINER
+   ======================================== */
+
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
+  padding: 32px;
+  padding-top: 100px;
+}
+
+/* ========================================
+   NAVIGATION CARDS
+   Desktop: Right side of header
+   Mobile: Second row, moves to right side when scrolled
+   ======================================== */
 
 .sections-grid {
   position: fixed;
@@ -231,6 +253,7 @@ body {
   z-index: 1000;
 }
 
+/* Base card styles */
 .section-card {
   position: relative;
   padding: 2px 24px;
@@ -248,6 +271,7 @@ body {
   width: max-content;
 }
 
+/* Card overlay effects */
 .section-card::before {
   content: '';
   position: absolute;
@@ -260,6 +284,11 @@ body {
   z-index: 0;
 }
 
+.section-card:hover::before {
+  opacity: 0.2;
+}
+
+/* Glitter sweep animation */
 .section-card::after {
   content: '';
   position: absolute;
@@ -268,23 +297,17 @@ body {
   width: 100%;
   height: 200%;
   background: linear-gradient(
-  90deg,
-  transparent 0%,
-  rgba(255, 255, 255, 0) 20%,
-  rgba(255, 255, 255, 0.8) 50%,
-  rgba(255, 255, 255, 0) 80%,
-  transparent 100%
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 80%,
+    transparent 100%
   );
   transform: rotate(45deg);
   z-index: 10;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.section-card::after {
   animation: glitter-sweep 5s ease-in-out infinite;
-  animation-delay: 0s;
 }
 
 .section-card.cuchilleras::after {
@@ -296,30 +319,20 @@ body {
 }
 
 @keyframes glitter-sweep {
-  0% {
+  0%, 100% {
     left: -150%;
     opacity: 0;
   }
-  3% {
-    opacity: 1;
-  }
-  27% {
+  3%, 27% {
     opacity: 1;
   }
   30% {
     left: 150%;
     opacity: 0;
   }
-  100% {
-    left: 150%;
-    opacity: 0;
-  }
 }
 
-.section-card:hover::before {
-  opacity: 0.2;
-}
-
+/* Card states */
 .section-card.active {
   transform: scale(1.05);
   border-width: 3px;
@@ -342,16 +355,11 @@ body {
   opacity: 1;
 }
 
-.section-card.inactive:hover::before {
-  opacity: 1;
-}
-
 .section-card-content {
   position: relative;
   z-index: 1;
 }
 
-/* Common Section Card Styles */
 .section-card .section-title {
   font-family: var(--font-display);
   font-size: 24px;
@@ -359,7 +367,10 @@ body {
   margin-bottom: 0;
 }
 
-/* Cuchilleras Card - Creative & Artistic */
+/* ========================================
+   CUCHILLERAS CARD STYLING
+   ======================================== */
+
 .section-card.cuchilleras {
   background: var(--cuchilleras-bg);
   border: 2px solid var(--cuchilleras-primary);
@@ -391,7 +402,10 @@ body {
   text-shadow: none;
 }
 
-/* FLIPAR Card - Modern & Minimalist */
+/* ========================================
+   FLIPAR CARD STYLING
+   ======================================== */
+
 .section-card.flipar {
   background: var(--flipar-bg);
   border: 2px solid var(--flipar-primary);
@@ -418,25 +432,21 @@ body {
 }
 
 /* ========================================
-  CUCHILLERAS SECTION PAGE
-  ======================================== */
+   SECTION CONTENT PAGES
+   Content shown when navigating to a section
+   ======================================== */
 
 .section-content {
   transition: opacity 0.3s ease;
 }
 
+/* Cuchilleras section */
 .cuchilleras-page {
   min-height: 100vh;
   background: var(--cuchilleras-bg);
   background-image:
-  radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.05) 0%, transparent 50%),
-  radial-gradient(circle at 80% 80%, rgba(244, 162, 97, 0.05) 0%, transparent 50%);
-}
-
-.cuchilleras-nav {
-  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--cuchilleras-accent));
-  padding: 24px 32px;
-  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(244, 162, 97, 0.05) 0%, transparent 50%);
 }
 
 .cuchilleras-content {
@@ -446,20 +456,10 @@ body {
   padding-top: 100px;
 }
 
-/* ========================================
-  FLIPAR SECTION PAGE
-  ======================================== */
-
+/* FLIPAR section */
 .flipar-page {
   min-height: 100vh;
   background: var(--flipar-bg);
-}
-
-.flipar-nav {
-  background: var(--neutral-white);
-  border-bottom: 1px solid var(--flipar-accent);
-  padding: 16px 32px;
-  box-shadow: 0 2px 10px rgba(69, 123, 157, 0.1);
 }
 
 .flipar-content {
@@ -469,64 +469,12 @@ body {
 }
 
 /* ========================================
-  NAVIGATION STYLES
-  ======================================== */
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 28.8px;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--neutral-white);
-}
-
-.nav-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  color: var(--neutral-white);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.nav-back:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateX(-5px);
-}
-
-/* FLIPAR specific nav colors */
-.flipar-nav .nav-logo {
-  color: var(--flipar-primary);
-}
-
-.flipar-nav .nav-back {
-  background: var(--flipar-accent);
-  color: var(--flipar-primary);
-  border-color: var(--flipar-primary);
-}
-
-.flipar-nav .nav-back:hover {
-  background: var(--flipar-primary);
-  color: var(--neutral-white);
-}
-
-/* ========================================
-  RESPONSIVE DESIGN
-  ======================================== */
+   RESPONSIVE DESIGN - MOBILE
+   Two-row navigation that compacts on scroll
+   ======================================== */
 
 @media (max-width: 768px) {
+  /* Header: Two rows (120px total) */
   .site-header {
     height: 120px;
     flex-direction: column;
@@ -535,6 +483,7 @@ body {
     transition: height 0.3s ease;
   }
 
+  /* Row 1: Title and subtitle */
   .header-content {
     width: 100%;
     height: 60px;
@@ -561,7 +510,7 @@ body {
   }
 
   .site-header .landing-subtitle {
-    font-size: 13px;
+    font-size: 16px;
     padding: 0 16px;
     opacity: 1;
     transition: opacity 0.3s ease, width 0.3s ease;
@@ -569,6 +518,7 @@ body {
     overflow: hidden;
   }
 
+  /* Row 2: Navigation cards */
   .sections-grid {
     position: fixed;
     top: 60px;
@@ -597,16 +547,9 @@ body {
     font-size: 18px !important;
   }
 
-  .landing-container {
-    padding-top: 140px;
-    transition: padding-top 0.3s ease;
-  }
-
-  .cuchilleras-content {
-    padding-top: 140px;
-    transition: padding-top 0.3s ease;
-  }
-
+  /* Content padding to account for fixed header */
+  .landing-container,
+  .cuchilleras-content,
   .flipar-content {
     padding-top: 140px;
     transition: padding-top 0.3s ease;
@@ -616,7 +559,11 @@ body {
     font-size: 40px;
   }
 
-  /* SCROLLED STATE */
+  /* ========================================
+     SCROLLED STATE (Mobile Only)
+     Compacts header to single 60px row
+     ======================================== */
+
   .site-header.scrolled {
     height: 60px;
   }
@@ -625,21 +572,23 @@ body {
     width: auto;
   }
 
+  /* Compact title */
   .site-header.scrolled .landing-title {
-    font-size: 16px; /* Linguister font size when scrolled */
-    padding: 0 12px 0 12px;
+    font-size: 16px;
+    padding: 0 12px;
     clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
   }
 
-  .site-header.scrolled .title-gradient {
+  .site-header.scrolled .title-gradient,
+  .site-header.scrolled .title-black {
     white-space: nowrap;
   }
 
   .site-header.scrolled .title-black {
     left: 12px;
-    white-space: nowrap;
   }
 
+  /* Hide subtitle */
   .site-header.scrolled .landing-subtitle {
     opacity: 0;
     width: 0;
@@ -647,6 +596,7 @@ body {
     overflow: hidden;
   }
 
+  /* Move cards to right side of row 1 */
   .sections-grid.scrolled {
     top: 0;
     left: auto;
@@ -656,21 +606,9 @@ body {
     padding: 8px 16px;
   }
 
-  .site-header.scrolled + .sections-grid {
-    top: 0;
-  }
-
-  body.scrolled .landing-container,
-  .site-header.scrolled ~ .landing-container {
-    padding-top: 80px;
-  }
-
-  body.scrolled .cuchilleras-content,
-  .site-header.scrolled ~ .cuchilleras-content {
-    padding-top: 80px;
-  }
-
-  body.scrolled .flipar-content,
+  /* Adjust content padding for compact header */
+  .site-header.scrolled ~ .landing-container,
+  .site-header.scrolled ~ .cuchilleras-content,
   .site-header.scrolled ~ .flipar-content {
     padding-top: 80px;
   }
