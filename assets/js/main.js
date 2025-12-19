@@ -169,4 +169,47 @@ document.addEventListener('DOMContentLoaded', function() {
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
   });
+
+  // Mobile scroll header transformation
+  let scrollTimeout;
+
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    const header = document.querySelector('.site-header');
+    const sectionsGrid = document.querySelector('.sections-grid');
+
+    // Only apply on mobile (max-width: 768px)
+    if (window.innerWidth <= 768) {
+      if (scrollY > 50) {
+        // Scrolled state - add class
+        header.classList.add('scrolled');
+        if (sectionsGrid) {
+          sectionsGrid.classList.add('scrolled');
+        }
+      } else {
+        // Top of page - remove class
+        header.classList.remove('scrolled');
+        if (sectionsGrid) {
+          sectionsGrid.classList.remove('scrolled');
+        }
+      }
+    } else {
+      // Remove classes on desktop
+      header.classList.remove('scrolled');
+      if (sectionsGrid) {
+        sectionsGrid.classList.remove('scrolled');
+      }
+    }
+  }
+
+  // Throttled scroll listener for performance
+  window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(handleScroll);
+  }, { passive: true });
+
+  // Also handle on resize
+  window.addEventListener('resize', handleScroll);
 });
