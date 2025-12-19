@@ -1,6 +1,16 @@
 // Linguister - Main JavaScript
 // Handles smooth interactions and animations
 
+// Configuration - Easy to modify typewriter words
+const TYPEWRITER_CONFIG = {
+  words1: ['por', 'para'],
+  words2: ['escritura', 'lógica'],
+  delays: {
+    start1: 0,
+    start2: 500
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   // Typewriter animation - reusable function
   function createTypewriter(element, words, startDelay = 0) {
@@ -13,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentWord = words[wordIndex];
 
       if (isDeleting) {
-        // Delete from right to left, but stop at first character (the space)
+        // Delete from right to left
         currentText = currentWord.substring(0, charIndex - 1);
         charIndex--;
 
-        if (charIndex === 1) { // Stop at 1 to keep the leading space
+        if (charIndex === 0) {
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
           setTimeout(typeWriter, 200); // Pause before typing next word
@@ -48,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Typewriter animation for por/para
   const typewriter1 = document.querySelector('.typewriter-1');
   if (typewriter1) {
-    createTypewriter(typewriter1, [' por', ' para'], 0);
+    createTypewriter(typewriter1, TYPEWRITER_CONFIG.words1, TYPEWRITER_CONFIG.delays.start1);
   }
 
   // Typewriter animation for escritura/lógica
   const typewriter2 = document.querySelector('.typewriter-2');
   if (typewriter2) {
-    createTypewriter(typewriter2, [' escritura', ' lógica'], 500);
+    createTypewriter(typewriter2, TYPEWRITER_CONFIG.words2, TYPEWRITER_CONFIG.delays.start2);
   }
 
   // Add smooth scroll behavior
@@ -88,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Update the gradient position based on mouse coordinates
       const isCuchilleras = this.classList.contains('cuchilleras');
-      const accentColor = isCuchilleras ? 'var(--cuchilleras-accent)' : 'var(--flipar-accent)';
 
       this.style.setProperty('--mouse-x', `${x}%`);
       this.style.setProperty('--mouse-y', `${y}%`);

@@ -1,6 +1,6 @@
 /* ========================================
-   FONT FACE DECLARATIONS
-   ======================================== */
+  FONT FACE DECLARATIONS
+  ======================================== */
 
 @font-face {
   font-family: 'Cuchilleras';
@@ -31,8 +31,8 @@
 }
 
 /* ========================================
-   COLOR VARIABLES - Easy to modify!
-   ======================================== */
+  COLOR VARIABLES - Easy to modify!
+  ======================================== */
 
 :root {
   /* Cuchilleras Section - Creative & Artistic */
@@ -63,8 +63,8 @@
 }
 
 /* ========================================
-   GLOBAL STYLES
-   ======================================== */
+  GLOBAL STYLES
+  ======================================== */
 
 * {
   margin: 0;
@@ -80,8 +80,8 @@ body {
 }
 
 /* ========================================
-   SITE HEADER - FIXED TOP BAR
-   ======================================== */
+  SITE HEADER - FIXED TOP BAR
+  ======================================== */
 
 .site-header {
   position: fixed;
@@ -106,8 +106,8 @@ body {
 }
 
 /* ========================================
-   LANDING PAGE - SECTION SELECTOR
-   ======================================== */
+  LANDING PAGE - SECTION SELECTOR
+  ======================================== */
 
 .landing-container {
   min-height: 100vh;
@@ -116,13 +116,13 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
-  padding: 2rem;
+  padding: 32px;
   padding-top: 100px;
 }
 
 .site-header .landing-title {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 700;
   margin-bottom: 0;
   position: relative;
@@ -131,18 +131,18 @@ body {
   height: 100%;
   flex-shrink: 0;
   background: var(--neutral-black);
-  padding: 0 calc(2rem + 20px) 0 2rem;
+  padding: 0 calc(32px + 20px) 0 32px;
   clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%);
 }
 
 .landing-title {
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: 56px;
   font-weight: 700;
-  margin-bottom: 3rem;
+  margin-bottom: 48px;
   position: relative;
   display: block;
-  height: 3.5rem;
+  height: 56px;
 }
 
 .site-header .title-gradient,
@@ -162,7 +162,7 @@ body {
 .site-header .title-black {
   position: absolute;
   top: 50%;
-  left: 2rem;
+  left: 32px;
   transform: translateY(-50%);
   z-index: 1;
 }
@@ -190,22 +190,21 @@ body {
   z-index: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   -webkit-text-stroke: 1px var(--neutral-white);
-  text-stroke: 1px var(--neutral-white);
 }
 
 .site-header .landing-subtitle {
-  font-size: 1.1rem;
+  font-size: 24px;
   color: var(--neutral-gray-dark);
   font-weight: 400;
   margin: 0;
-  white-space: nowrap;
+  white-space: pre;
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 32px;
 }
 
 .landing-subtitle {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: var(--neutral-gray-dark);
   font-weight: 300;
 }
@@ -219,7 +218,7 @@ body {
 .sections-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
-  gap: 3rem;
+  gap: 48px;
   max-width: 1200px;
   width: 100%;
   justify-content: center;
@@ -227,7 +226,7 @@ body {
 
 .section-card {
   position: relative;
-  padding: 3rem 2rem;
+  padding: 48px 32px;
   border-radius: 20px;
   text-decoration: none;
   color: inherit;
@@ -261,12 +260,12 @@ body {
   width: 100%;
   height: 200%;
   background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0) 20%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 80%,
-    transparent 100%
+   90deg,
+   transparent 0%,
+   rgba(255, 255, 255, 0) 20%,
+   rgba(255, 255, 255, 0.8) 50%,
+   rgba(255, 255, 255, 0) 80%,
+   transparent 100%
   );
   transform: rotate(45deg);
   z-index: 10;
@@ -290,22 +289,22 @@ body {
 
 @keyframes glitter-sweep {
   0% {
-    left: -150%;
-    opacity: 0;
+   left: -150%;
+   opacity: 0;
   }
   3% {
-    opacity: 1;
+   opacity: 1;
   }
   27% {
-    opacity: 1;
+   opacity: 1;
   }
   30% {
-    left: 150%;
-    opacity: 0;
+   left: 150%;
+   opacity: 0;
   }
   100% {
-    left: 150%;
-    opacity: 0;
+   left: 150%;
+   opacity: 0;
   }
 }
 
@@ -331,17 +330,17 @@ body {
 }
 
 .section-card.cuchilleras .section-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  font-size: 64px;
+  margin-bottom: 24px;
   filter: drop-shadow(3px 3px 6px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%));
 }
 
 .section-card.cuchilleras .section-title {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 700;
   color: var(--cuchilleras-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
@@ -353,7 +352,7 @@ body {
 
 .section-card.cuchilleras .section-description {
   color: var(--cuchilleras-text);
-  font-size: 1.1rem;
+  font-size: 17.6px;
   line-height: 1.8;
 }
 
@@ -365,54 +364,54 @@ body {
 }
 
 .section-card.flipar .section-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  font-size: 64px;
+  margin-bottom: 24px;
   filter: drop-shadow(3px 3px 6px color-mix(in srgb, var(--flipar-primary), transparent 80%));
 }
 
 .section-card.flipar .section-title {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 700;
   color: var(--flipar-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   text-shadow: 2px 2px 4px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
 
 .section-card.flipar .section-description {
   color: var(--flipar-text);
-  font-size: 1.1rem;
+  font-size: 17.6px;
   line-height: 1.8;
 }
 
 /* ========================================
-   CUCHILLERAS SECTION PAGE
-   ======================================== */
+  CUCHILLERAS SECTION PAGE
+  ======================================== */
 
 .cuchilleras-page {
   min-height: 100vh;
   background: var(--cuchilleras-bg);
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(244, 162, 97, 0.05) 0%, transparent 50%);
+   radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.05) 0%, transparent 50%),
+   radial-gradient(circle at 80% 80%, rgba(244, 162, 97, 0.05) 0%, transparent 50%);
 }
 
 .cuchilleras-nav {
   background: linear-gradient(135deg, var(--cuchilleras-primary), var(--cuchilleras-accent));
-  padding: 1.5rem 2rem;
+  padding: 24px 32px;
   box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
 }
 
 .cuchilleras-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 64px 32px;
   padding-top: 100px;
 }
 
 /* ========================================
-   FLIPAR SECTION PAGE
-   ======================================== */
+  FLIPAR SECTION PAGE
+  ======================================== */
 
 .flipar-page {
   min-height: 100vh;
@@ -422,19 +421,19 @@ body {
 .flipar-nav {
   background: var(--neutral-white);
   border-bottom: 1px solid var(--flipar-accent);
-  padding: 1rem 2rem;
+  padding: 16px 32px;
   box-shadow: 0 2px 10px rgba(69, 123, 157, 0.1);
 }
 
 .flipar-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 48px 32px;
 }
 
 /* ========================================
-   NAVIGATION STYLES
-   ======================================== */
+  NAVIGATION STYLES
+  ======================================== */
 
 .nav-container {
   max-width: 1200px;
@@ -446,7 +445,7 @@ body {
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 28.8px;
   font-weight: 700;
   text-decoration: none;
   color: var(--neutral-white);
@@ -455,8 +454,8 @@ body {
 .nav-back {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 8px;
+  padding: 8px 16px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
@@ -487,65 +486,65 @@ body {
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
+  RESPONSIVE DESIGN
+  ======================================== */
 
 @media (max-width: 768px) {
   .site-header {
-    height: 60px;
+   height: 60px;
   }
 
   .header-content {
-    flex-wrap: wrap;
+   flex-wrap: wrap;
   }
 
   .site-header .landing-title {
-    font-size: 1.5rem;
-    padding: 0 2rem 0 1rem;
-    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%);
+   font-size: 24px;
+   padding: 0 32px 0 16px;
+   clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%);
   }
 
   .site-header .landing-subtitle {
-    font-size: 0.875rem;
-    padding: 0 1rem;
+   font-size: 14px;
+   padding: 0 16px;
   }
 
   .landing-container {
-    padding-top: 80px;
+   padding-top: 80px;
   }
 
   .cuchilleras-content {
-    padding-top: 80px;
+   padding-top: 80px;
   }
 
   .landing-title {
-    font-size: 2.5rem;
+   font-size: 40px;
   }
 
   .sections-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+   grid-template-columns: 1fr;
+   gap: 32px;
   }
 
   .section-card {
-    min-height: 300px;
+   min-height: 300px;
   }
 
   .section-title {
-    font-size: 2rem !important;
+   font-size: 32px !important;
   }
 }
 
 @media (max-width: 480px) {
   .landing-title {
-    font-size: 2rem;
+   font-size: 32px;
   }
 
   .landing-subtitle {
-    font-size: 1rem;
+   font-size: 16px;
   }
 
   .section-card {
-    padding: 2rem 1.5rem;
+   padding: 32px 24px;
   }
 }
