@@ -325,6 +325,20 @@ body {
   opacity: 0.2;
 }
 
+.section-card.inactive {
+  position: relative;
+}
+
+.section-card.inactive::before {
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.section-card.inactive:hover::before {
+  opacity: 1;
+}
+
 .section-card-content {
   position: relative;
   z-index: 1;
@@ -342,7 +356,7 @@ body {
 .section-card.cuchilleras {
   background: var(--cuchilleras-bg);
   border: 2px solid var(--cuchilleras-primary);
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
 .section-card.cuchilleras .section-title {
@@ -360,7 +374,7 @@ body {
 .section-card.flipar {
   background: var(--flipar-bg);
   border: 2px solid var(--flipar-primary);
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--flipar-primary), transparent 80%);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
 
 .section-card.flipar .section-title {
@@ -371,6 +385,10 @@ body {
 /* ========================================
   CUCHILLERAS SECTION PAGE
   ======================================== */
+
+.section-content {
+  transition: opacity 0.3s ease;
+}
 
 .cuchilleras-page {
   min-height: 100vh;

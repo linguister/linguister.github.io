@@ -12,6 +12,72 @@ const TYPEWRITER_CONFIG = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Section switching functionality
+  const cards = document.querySelectorAll('.section-card');
+  const landingView = document.getElementById('landing-view');
+  const sectionContents = document.querySelectorAll('.section-content');
+
+  // Handle card clicks to show section content
+  cards.forEach(card => {
+    card.addEventListener('click', function() {
+      const sectionName = this.getAttribute('data-section');
+      const sectionContent = document.getElementById(sectionName + '-content');
+
+      if (sectionContent) {
+        // Hide landing view and show section content
+        landingView.style.display = 'none';
+        sectionContent.style.display = 'block';
+
+        // Hide other section contents
+        sectionContents.forEach(content => {
+          if (content.id !== sectionName + '-content') {
+            content.style.display = 'none';
+          }
+        });
+
+        // Change body class for background styling
+        document.body.className = sectionName + '-page';
+
+        // Update card states - add inactive class to other cards
+        cards.forEach(c => {
+          if (c.getAttribute('data-section') === sectionName) {
+            c.classList.remove('inactive');
+            c.classList.add('active');
+          } else {
+            c.classList.remove('active');
+            c.classList.add('inactive');
+          }
+        });
+      }
+    });
+  });
+
+  // Add back button functionality to the logo/title
+  const headerTitle = document.querySelector('.site-header .landing-title');
+  if (headerTitle) {
+    headerTitle.style.cursor = 'pointer';
+    headerTitle.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Hide all section contents
+      sectionContents.forEach(content => {
+        content.style.display = 'none';
+      });
+
+      // Show landing view
+      landingView.style.display = 'flex';
+
+      // Reset body class
+      document.body.className = '';
+
+      // Remove active/inactive states from cards
+      cards.forEach(c => {
+        c.classList.remove('active');
+        c.classList.remove('inactive');
+      });
+    });
+  }
+
   // Typewriter animation - reusable function
   function createTypewriter(element, words, startDelay = 0) {
     let wordIndex = 0;
@@ -81,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Add hover effects to section cards with mouse-following gradient
-  const cards = document.querySelectorAll('.section-card');
   cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
       this.style.transform = 'translateY(-10px) scale(1.02)';
