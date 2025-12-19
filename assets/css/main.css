@@ -57,11 +57,11 @@
   --flipar-bg: rgb(255, 248, 237);
 
   /* Neutral Colors */
-  --neutral-white: rgb(255, 255, 255);
-  --neutral-black: rgb(0, 0, 0);
-  --neutral-gray-light: rgb(245, 245, 245);
-  --neutral-gray: rgb(224, 224, 224);
-  --neutral-gray-dark: rgb(117, 117, 117);
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --gray-light: rgb(245, 245, 245);
+  --gray: rgb(224, 224, 224);
+  --gray-dark: rgb(117, 117, 117);
 
   /* Typography */
   --font-main: 'Cuchilleras', Georgia, 'Times New Roman', serif;
@@ -81,8 +81,8 @@
 body {
   font-family: var(--font-main);
   line-height: 1.6;
-  color: var(--neutral-black);
-  background-color: var(--neutral-white);
+  color: var(--black);
+  background-color: var(--white);
 }
 
 /* ========================================
@@ -96,7 +96,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--neutral-gray-light);
+  background: var(--gray-light);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 0;
@@ -131,7 +131,7 @@ body {
   align-items: center;
   height: 100%;
   flex-shrink: 0;
-  background: var(--neutral-black);
+  background: var(--black);
   padding: 0 calc(32px + 20px) 0 32px;
   clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%);
 }
@@ -155,7 +155,8 @@ body {
 
 .site-header .title-gradient {
   position: relative;
-  background: linear-gradient(135deg, var(--cuchilleras-secondary), var(--flipar-secondary));
+  background: var(--gray);
+  /* background: linear-gradient(135deg, var(--cuchilleras-secondary), var(--flipar-secondary)); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -192,13 +193,13 @@ body {
   color: transparent;
   z-index: 0;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-  -webkit-text-stroke: 1px var(--neutral-gray);
+  -webkit-text-stroke: 1px var(--gray);
 }
 
 /* Subtitle with typewriter animation */
 .site-header .landing-subtitle {
   font-size: 24px;
-  color: var(--neutral-gray-dark);
+  color: var(--gray-dark);
   font-weight: 400;
   margin: 0;
   white-space: pre;
@@ -209,13 +210,13 @@ body {
 
 .landing-subtitle {
   font-size: 24px;
-  color: var(--neutral-gray-dark);
+  color: var(--gray-dark);
   font-weight: 300;
 }
 
 .typewriter {
   display: inline-block;
-  color: var(--neutral-gray-dark);
+  color: var(--gray-dark);
 }
 
 /* ========================================
@@ -228,7 +229,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
+  background: linear-gradient(135deg, var(--gray-light) 0%, var(--white) 100%);
   padding: 32px;
   padding-top: 100px;
   position: relative;
@@ -270,6 +271,7 @@ body {
   font-family: var(--font-display);
   font-size: 40px;
   font-weight: 400;
+  font-style: italic;
   line-height: 1.4;
   margin-bottom: 32px;
   background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
@@ -310,10 +312,9 @@ body {
 
 .quote-secondary {
   font-size: 20px;
-  line-height: 1.8;
-  color: var(--neutral-gray-dark);
   font-weight: 300;
-  font-style: italic;
+  line-height: 1.8;
+  color: var(--gray-dark);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -343,7 +344,7 @@ body {
 
 .cta-text {
   font-size: 1rem;
-  color: var(--neutral-gray-dark);
+  color: var(--gray-dark);
   font-weight: 300;
   letter-spacing: 0.5px;
   /* text-transform: lowercase; */
@@ -614,7 +615,7 @@ body {
     width: 100%;
     height: 60px;
     justify-content: flex-start;
-    background: var(--neutral-gray-light);
+    background: var(--gray-light);
     transition: width 0.3s ease;
   }
 
@@ -654,8 +655,8 @@ body {
     height: 60px;
     gap: 16px;
     padding: 8px 16px;
-    background: var(--neutral-gray-light);
-    border-top: 1px solid var(--neutral-gray);
+    background: var(--gray-light);
+    border-top: 1px solid var(--gray);
     z-index: 1001;
     transition: all 0.3s ease;
   }
