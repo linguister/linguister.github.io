@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentWord = words[wordIndex];
 
       if (isDeleting) {
-        // Delete from right to left
+        // Delete from right to left, but stop at first character (the space)
         currentText = currentWord.substring(0, charIndex - 1);
         charIndex--;
 
-        if (charIndex === 0) {
+        if (charIndex === 1) { // Stop at 1 to keep the leading space
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
           setTimeout(typeWriter, 200); // Pause before typing next word
@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Typewriter animation for por/para
   const typewriter1 = document.querySelector('.typewriter-1');
   if (typewriter1) {
-    createTypewriter(typewriter1, ['por', 'para'], 0);
+    createTypewriter(typewriter1, [' por', ' para'], 0);
   }
 
   // Typewriter animation for escritura/lógica
   const typewriter2 = document.querySelector('.typewriter-2');
   if (typewriter2) {
-    createTypewriter(typewriter2, ['escritura', 'lógica'], 500);
+    createTypewriter(typewriter2, [' escritura', ' lógica'], 500);
   }
 
   // Add smooth scroll behavior

@@ -122,16 +122,16 @@ body {
 
 .site-header .landing-title {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0;
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   height: 100%;
   flex-shrink: 0;
   background: var(--neutral-black);
-  padding: 0 3rem 0 2rem;
+  padding: 0 calc(2rem + 20px) 0 2rem;
   clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%);
 }
 
@@ -147,20 +147,24 @@ body {
 
 .site-header .title-gradient,
 .site-header .title-black {
-  position: static;
-  transform: none;
   white-space: nowrap;
 }
 
 .site-header .title-gradient {
+  position: relative;
   background: linear-gradient(135deg, var(--cuchilleras-secondary), var(--flipar-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  z-index: 2;
 }
 
 .site-header .title-black {
-  display: none;
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .title-gradient,
@@ -185,8 +189,8 @@ body {
   color: transparent;
   z-index: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  -webkit-text-stroke: 1px var(--neutral-black);
-  text-stroke: 1px var(--neutral-black);
+  -webkit-text-stroke: 1px var(--neutral-white);
+  text-stroke: 1px var(--neutral-white);
 }
 
 .site-header .landing-subtitle {
