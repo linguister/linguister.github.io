@@ -246,10 +246,6 @@ body {
   box-shadow: 0 10px 30px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
-.section-card.cuchilleras::before {
-  background: radial-gradient(circle at var(--mouse-x, 100%) var(--mouse-y, 0%), var(--cuchilleras-accent), transparent);
-}
-
 .section-card.cuchilleras .section-icon {
   font-size: 4rem;
   margin-bottom: 1.5rem;
@@ -276,10 +272,6 @@ body {
   background: linear-gradient(135deg, var(--flipar-bg) 0%, var(--flipar-bg) 100%);
   border: 3px solid var(--flipar-primary);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--flipar-primary), transparent 80%);
-}
-
-.section-card.flipar::before {
-  background: radial-gradient(circle at var(--mouse-x, 100%) var(--mouse-y, 0%), var(--flipar-accent), transparent);
 }
 
 .section-card.flipar .section-icon {
