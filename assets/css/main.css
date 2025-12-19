@@ -168,6 +168,9 @@ body {
   top: 50%;
   left: 32px;
   transform: translateY(-50%);
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 1px var(--gray);
   z-index: 1;
 }
 
@@ -178,22 +181,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-}
-
-.title-gradient {
-  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  z-index: 1;
-}
-
-.title-black {
-  color: transparent;
-  z-index: 0;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-  -webkit-text-stroke: 1px var(--gray);
 }
 
 /* Subtitle with typewriter animation */
@@ -758,6 +745,7 @@ body {
     width: auto;
     border-top: none;
     padding: 8px 16px;
+    background-color: transparent;
   }
 
   /* Adjust content padding for compact header */
