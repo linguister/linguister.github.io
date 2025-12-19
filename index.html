@@ -2,36 +2,195 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>FLIPAR</title>
+	<title>Linguister - Language Creation & Discovery</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta name="description" content="Explore the art of language creation with Cuchilleras font and FLIPAR IPA representation system">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="assets/js/main.js">
 </head>
 <body>
-	<nav id="top" class="navbar navbar-default bg-gradient">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">
-					<img src="assets/img/FLIPAR.png" height="100%">
-				</a>
+	<header class="site-header">
+		<div class="header-content">
+			<h1 class="landing-title" aria-label="Lingüister">
+				<span class="title-gradient">Linguister</span>
+				<span class="title-black">Lingüister</span>
+			</h1>
+			<p class="landing-subtitle">Todo <span class="typewriter typewriter-1"></span> la <span class="typewriter typewriter-2"></span></p>
+		</div>
+	</header>
+
+	<!-- Navigation Cards - Always Visible -->
+	<div class="sections-grid">
+		<!-- Cuchilleras Section -->
+		<div class="section-card cuchilleras" data-section="cuchilleras">
+			<div class="section-card-content">
+				<h2 class="section-title">Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras</h2>
 			</div>
-			<ul class="nav navbar-nav">
-				<li class="active-tab"><a href="#">Home</a></li>
-				<li><a href="#">Chart</a></li>
-				<li><a href="#">Calculator</a></li>
-			</ul>
 		</div>
-	</nav>
-	<div class="container-fluid">
-		<div class="description" style="width: 70%; float: left; padding-right: 15px;">
-			<h1>Hola</h1>
-		</div>
-		<div class="cite" style="width: 30%; float: right;">
-			<h1>AS</h1>
+
+		<!-- FLIPAR Section -->
+		<div class="section-card flipar" data-section="flipar">
+			<div class="section-card-content">
+				<h2 class="section-title">FLIPAR</h2>
+			</div>
 		</div>
 	</div>
+
+	<div class="landing-container" id="landing-view">
+	</div>
+
+	<!-- Cuchilleras Content Section -->
+	<main class="cuchilleras-content section-content" id="cuchilleras-content" style="display: none;">
+		<section style="text-align: center; margin-bottom: 4rem;">
+			<h1 style="font-family: var(--font-display); font-size: 4rem; color: var(--cuchilleras-primary); margin-bottom: 1rem; text-shadow: 3px 3px 6px rgba(230, 57, 70, 0.2);">
+				Cuchilleras
+			</h1>
+			<p style="font-size: 1.5rem; color: var(--cuchilleras-text); font-style: italic;">
+				An Exclusive Artistic Font
+			</p>
+		</section>
+
+		<section style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(230, 57, 70, 0.15); margin-bottom: 3rem;">
+			<h2 style="color: var(--cuchilleras-primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">
+				About the Font
+			</h2>
+			<div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--cuchilleras-text); font-size: 1.1rem;">
+				<p style="margin-bottom: 1.5rem;">
+					<strong>Cuchilleras</strong> is a unique typeface designed for those who seek to push the boundaries of creative expression.
+					Born from the intersection of traditional calligraphy and modern design principles, this font embodies both elegance and boldness.
+				</p>
+				<p style="margin-bottom: 1.5rem;">
+					Each character has been meticulously crafted to maintain harmony while celebrating individuality.
+					The font is ideal for artistic projects, branding, editorial design, and any medium where typography takes center stage.
+				</p>
+			</div>
+		</section>
+
+		<section style="background: linear-gradient(135deg, var(--cuchilleras-light), white); padding: 3rem; border-radius: 20px; border: 3px solid var(--cuchilleras-accent); margin-bottom: 3rem;">
+			<h2 style="color: var(--cuchilleras-primary); font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">
+				Character Showcase
+			</h2>
+			<div style="text-align: center; padding: 2rem;">
+				<div style="font-size: 3rem; color: var(--cuchilleras-primary); margin-bottom: 2rem; font-family: var(--font-display); letter-spacing: 0.1em;">
+					ABCDEFGHIJKLMNOPQRSTUVWXYZ
+				</div>
+				<div style="font-size: 3rem; color: var(--cuchilleras-accent); margin-bottom: 2rem; font-family: var(--font-display); letter-spacing: 0.1em;">
+					abcdefghijklmnopqrstuvwxyz
+				</div>
+				<div style="font-size: 3rem; color: var(--cuchilleras-secondary); font-family: var(--font-display); letter-spacing: 0.1em;">
+					0123456789
+				</div>
+			</div>
+		</section>
+
+		<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+			<div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid var(--cuchilleras-primary); box-shadow: 0 5px 20px rgba(230, 57, 70, 0.1);">
+				<h3 style="color: var(--cuchilleras-primary); margin-bottom: 1rem; font-size: 1.5rem;">✨ Creative</h3>
+				<p style="color: var(--cuchilleras-text); line-height: 1.6;">
+					Designed for artistic expression with unique character forms that stand out.
+				</p>
+			</div>
+			<div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid var(--cuchilleras-accent); box-shadow: 0 5px 20px rgba(231, 111, 81, 0.1);">
+				<h3 style="color: var(--cuchilleras-accent); margin-bottom: 1rem; font-size: 1.5rem;">🎨 Versatile</h3>
+				<p style="color: var(--cuchilleras-text); line-height: 1.6;">
+					Works beautifully across print, digital, and branding applications.
+				</p>
+			</div>
+			<div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid var(--cuchilleras-secondary); box-shadow: 0 5px 20px rgba(244, 162, 97, 0.1);">
+				<h3 style="color: var(--cuchilleras-secondary); margin-bottom: 1rem; font-size: 1.5rem;">💎 Exclusive</h3>
+				<p style="color: var(--cuchilleras-text); line-height: 1.6;">
+					A limited typeface crafted with attention to detail and artistic vision.
+				</p>
+			</div>
+		</section>
+	</main>
+
+	<!-- FLIPAR Content Section -->
+	<main class="flipar-content section-content" id="flipar-content" style="display: none;">
+		<section style="text-align: center; margin-bottom: 4rem;">
+			<h1 style="font-size: 4rem; color: var(--flipar-primary); margin-bottom: 1rem; font-weight: 600; letter-spacing: -1px;">
+				FLIPAR
+			</h1>
+			<p style="font-size: 1.3rem; color: var(--flipar-text); font-weight: 300;">
+				International Phonetic Alphabet Representation System
+			</p>
+		</section>
+
+		<section style="background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(69, 123, 157, 0.1); margin-bottom: 3rem; border-top: 3px solid var(--flipar-primary);">
+			<h2 style="color: var(--flipar-primary); font-size: 2rem; margin-bottom: 2rem; font-weight: 600;">
+				What is FLIPAR?
+			</h2>
+			<div style="max-width: 800px; line-height: 1.8; color: var(--flipar-text);">
+				<p style="margin-bottom: 1.5rem;">
+					FLIPAR (Phonetic Language International Presentation and Recognition) is a streamlined system
+					for representing phonetic sounds using the International Phonetic Alphabet.
+				</p>
+				<p style="margin-bottom: 1.5rem;">
+					Designed with clarity and precision in mind, FLIPAR provides linguists, language learners,
+					and researchers with an intuitive framework for phonetic transcription and analysis.
+				</p>
+			</div>
+		</section>
+
+		<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+			<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(69, 123, 157, 0.08); border-left: 4px solid var(--flipar-primary);">
+				<div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+				<h3 style="color: var(--flipar-primary); margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Systematic</h3>
+				<p style="color: var(--flipar-text); line-height: 1.6; font-size: 0.95rem;">
+					Organized structure for consistent phonetic representation.
+				</p>
+			</div>
+			<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(69, 123, 157, 0.08); border-left: 4px solid var(--flipar-accent);">
+				<div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+				<h3 style="color: var(--flipar-primary); margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Precise</h3>
+				<p style="color: var(--flipar-text); line-height: 1.6; font-size: 0.95rem;">
+					Accurate phonetic transcription for detailed linguistic analysis.
+				</p>
+			</div>
+			<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(69, 123, 157, 0.08); border-left: 4px solid var(--flipar-secondary);">
+				<div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
+				<h3 style="color: var(--flipar-primary); margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">Universal</h3>
+				<p style="color: var(--flipar-text); line-height: 1.6; font-size: 0.95rem;">
+					Compatible with international phonetic standards.
+				</p>
+			</div>
+		</section>
+
+		<section style="background: linear-gradient(135deg, var(--flipar-light), white); padding: 3rem; border-radius: 12px; margin-bottom: 3rem;">
+			<h2 style="color: var(--flipar-primary); font-size: 2rem; margin-bottom: 2rem; font-weight: 600; text-align: center;">
+				Key Features
+			</h2>
+			<div style="max-width: 700px; margin: 0 auto;">
+				<div style="margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(69, 123, 157, 0.06);">
+					<h3 style="color: var(--flipar-secondary); margin-bottom: 0.8rem; font-size: 1.2rem;">Clear Notation</h3>
+					<p style="color: var(--flipar-text); line-height: 1.7;">
+						Simplified notation system that maintains IPA accuracy while improving readability.
+					</p>
+				</div>
+				<div style="margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(69, 123, 157, 0.06);">
+					<h3 style="color: var(--flipar-secondary); margin-bottom: 0.8rem; font-size: 1.2rem;">Comprehensive Coverage</h3>
+					<p style="color: var(--flipar-text); line-height: 1.7;">
+						Supports a wide range of phonetic symbols for diverse linguistic applications.
+					</p>
+				</div>
+				<div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(69, 123, 157, 0.06);">
+					<h3 style="color: var(--flipar-secondary); margin-bottom: 0.8rem; font-size: 1.2rem;">Educational Focus</h3>
+					<p style="color: var(--flipar-text); line-height: 1.7;">
+						Designed to facilitate learning and teaching of phonetic transcription.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section style="background: var(--flipar-primary); color: white; padding: 3rem; border-radius: 12px; text-align: center;">
+			<h2 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 600;">
+				Start Using FLIPAR
+			</h2>
+			<p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+				Explore our tools and resources to begin your journey in phonetic representation and linguistic analysis.
+			</p>
+		</section>
+	</main>
+
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
