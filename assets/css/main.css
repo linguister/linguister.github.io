@@ -36,27 +36,27 @@
 
 :root {
   /* Cuchilleras Section - Creative & Artistic */
-  --cuchilleras-primary: #E63946;
-  --cuchilleras-secondary: #F4A261;
-  --cuchilleras-accent: #E76F51;
-  --cuchilleras-bg: #FFF8F3;
-  --cuchilleras-text: #2B2D42;
-  --cuchilleras-light: #FFF5EB;
+  --cuchilleras-primary: rgb(230, 57, 70);
+  --cuchilleras-secondary: rgb(244, 162, 97);
+  --cuchilleras-accent: rgb(231, 111, 81);
+  --cuchilleras-bg: rgb(255, 248, 243);
+  --cuchilleras-text: rgb(43, 45, 66);
+  --cuchilleras-light: rgb(255, 245, 235);
 
   /* FLIPAR Section - Modern & Minimalist */
-  --flipar-primary: #457B9D;
-  --flipar-secondary: #1D3557;
-  --flipar-accent: #A8DADC;
-  --flipar-bg: #F1FAEE;
-  --flipar-text: #1D3557;
-  --flipar-light: #F8FFFE;
+  --flipar-primary: rgb(69, 123, 157);
+  --flipar-secondary: rgb(29, 53, 87);
+  --flipar-accent: rgb(168, 218, 220);
+  --flipar-bg: rgb(241, 250, 238);
+  --flipar-text: rgb(29, 53, 87);
+  --flipar-light: rgb(248, 255, 254);
 
   /* Shared/Neutral Colors */
-  --neutral-white: #FFFFFF;
-  --neutral-black: #000000;
-  --neutral-gray-light: #F5F5F5;
-  --neutral-gray: #E0E0E0;
-  --neutral-gray-dark: #757575;
+  --neutral-white: rgb(255, 255, 255);
+  --neutral-black: rgb(0, 0, 0);
+  --neutral-gray-light: rgb(245, 245, 245);
+  --neutral-gray: rgb(224, 224, 224);
+  --neutral-gray-dark: rgb(117, 117, 117);
 
   /* Typography */
   --font-main: 'Cuchilleras', Georgia, 'Times New Roman', serif;
@@ -119,7 +119,7 @@ body {
 }
 
 .title-gradient {
-  background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
+  background: linear-gradient(135deg, var(--cuchilleras-secondary), var(--flipar-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -136,23 +136,15 @@ body {
 }
 
 .landing-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--neutral-gray-dark);
   font-weight: 300;
 }
 
 .typewriter {
   display: inline-block;
-  text-align: left;
+  /* text-align: left; */
   color: var(--neutral-gray-dark);
-}
-
-.typewriter-1 {
-  min-width: 4ch;
-}
-
-.typewriter-2 {
-  min-width: 9ch;
 }
 
 .sections-grid {
