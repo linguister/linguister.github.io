@@ -105,31 +105,31 @@ body {
   font-weight: 700;
   margin-bottom: 1rem;
   position: relative;
-  display: inline-block;
+  display: block;
+  height: 3.5rem;
+}
+
+.title-gradient,
+.title-black {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.title-gradient {
   background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  z-index: 1;
 }
 
-.custom-dieresis {
-  position: absolute;
-  top: 0.35em;
-  left: 4.15ch;
-  display: flex;
-  gap: 0.18em;
-  pointer-events: none;
-}
-
-.custom-dieresis::before,
-.custom-dieresis::after {
-  content: '';
-  width: 0.18em;
-  height: 0.18em;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23A05A6B" stroke-width="2" stroke-dasharray="3 2" /></svg>');
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: block;
+.title-black {
+  color: var(--neutral-black);
+  z-index: 0;
 }
 
 .landing-subtitle {
