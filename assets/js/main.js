@@ -146,28 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Add hover effects to section cards with mouse-following gradient
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-
-    card.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-    });
-
-    card.addEventListener('mousemove', function(e) {
-      const rect = this.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-      // Update the gradient position based on mouse coordinates
-      const isCuchilleras = this.classList.contains('cuchilleras');
-
-      this.style.setProperty('--mouse-x', `${x}%`);
-      this.style.setProperty('--mouse-y', `${y}%`);
-    });
-  });
 
   // Add fade-in animation for content
   const observerOptions = {
