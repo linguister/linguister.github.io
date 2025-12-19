@@ -233,7 +233,7 @@ body {
 
 .section-card {
   position: relative;
-  padding: 4px 32px;
+  padding: 2px 24px;
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
@@ -333,14 +333,14 @@ body {
 /* Common Section Card Styles */
 .section-card .section-title {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 0;
 }
 
 /* Cuchilleras Card - Creative & Artistic */
 .section-card.cuchilleras {
-  background: linear-gradient(135deg, var(--cuchilleras-bg) 0%, var(--cuchilleras-bg) 100%);
+  background: var(--cuchilleras-bg);
   border: 2px solid var(--cuchilleras-primary);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
@@ -358,7 +358,7 @@ body {
 
 /* FLIPAR Card - Modern & Minimalist */
 .section-card.flipar {
-  background: linear-gradient(135deg, var(--flipar-bg) 0%, var(--flipar-bg) 100%);
+  background: var(--flipar-bg);
   border: 2px solid var(--flipar-primary);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
