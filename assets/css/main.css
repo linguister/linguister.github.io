@@ -238,7 +238,7 @@ body {
   text-decoration: none;
   color: inherit;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, opacity 0.3s ease, background 0.3s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -320,14 +320,26 @@ body {
   opacity: 0.2;
 }
 
+.section-card.active {
+  transform: scale(1.05);
+  border-width: 3px;
+}
+
 .section-card.inactive {
   position: relative;
+  transform: scale(0.9);
+  opacity: 0.7;
 }
 
 .section-card.inactive::before {
   background: rgba(255, 255, 255, 0.6);
   opacity: 1;
   pointer-events: none;
+}
+
+.section-card.inactive:hover {
+  transform: scale(0.98);
+  opacity: 1;
 }
 
 .section-card.inactive:hover::before {
@@ -352,11 +364,15 @@ body {
   background: var(--cuchilleras-bg);
   border: 2px solid var(--cuchilleras-primary);
   box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .section-card.cuchilleras:hover {
   box-shadow: 0 2px 5px var(--cuchilleras-primary);
+}
+
+.section-card.active.cuchilleras {
+  background: color-mix(in srgb, var(--cuchilleras-bg), white 20%);
 }
 
 .section-card.cuchilleras .section-title {
@@ -380,11 +396,15 @@ body {
   background: var(--flipar-bg);
   border: 2px solid var(--flipar-primary);
   box-shadow: 0 4px 10px color-mix(in srgb, var(--flipar-primary), transparent 80%);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .section-card.flipar:hover {
   box-shadow: 0 2px 5px var(--flipar-primary);
+}
+
+.section-card.active.flipar {
+  background: color-mix(in srgb, var(--flipar-bg), white 20%);
 }
 
 .section-card.flipar .section-title {
