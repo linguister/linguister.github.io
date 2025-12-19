@@ -93,10 +93,12 @@ body {
   z-index: 1000;
   padding: 0;
   height: 70px;
+  display: flex;
+  align-items: stretch;
 }
 
 .header-content {
-  max-width: 100%;
+  width: 50%;
   margin: 0;
   display: flex;
   align-items: stretch;
@@ -114,10 +116,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background: linear-gradient(135deg, var(--neutral-gray-light) 0%, var(--neutral-white) 100%);
   padding: 32px;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 .site-header .landing-title {
@@ -216,18 +218,23 @@ body {
 }
 
 .sections-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
-  gap: 48px;
-  max-width: 1200px;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 70px;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 32px;
+  padding: 0 32px;
+  z-index: 1000;
 }
 
 .section-card {
   position: relative;
-  padding: 8px 32px;
-  border-radius: 16px;
+  padding: 4px 32px;
+  border-radius: 12px;
   text-decoration: none;
   color: inherit;
   overflow: hidden;
@@ -323,19 +330,23 @@ body {
   z-index: 1;
 }
 
+/* Common Section Card Styles */
+.section-card .section-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
 /* Cuchilleras Card - Creative & Artistic */
 .section-card.cuchilleras {
   background: linear-gradient(135deg, var(--cuchilleras-bg) 0%, var(--cuchilleras-bg) 100%);
-  border: 3px solid var(--cuchilleras-primary);
+  border: 2px solid var(--cuchilleras-primary);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
 .section-card.cuchilleras .section-title {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 700;
   color: var(--cuchilleras-primary);
-  margin-bottom: 0;
   text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
 }
 
@@ -348,16 +359,12 @@ body {
 /* FLIPAR Card - Modern & Minimalist */
 .section-card.flipar {
   background: linear-gradient(135deg, var(--flipar-bg) 0%, var(--flipar-bg) 100%);
-  border: 3px solid var(--flipar-primary);
+  border: 2px solid var(--flipar-primary);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
 
 .section-card.flipar .section-title {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 700;
   color: var(--flipar-primary);
-  margin-bottom: 0;
   text-shadow: 2px 2px 4px color-mix(in srgb, var(--flipar-primary), transparent 80%);
 }
 
