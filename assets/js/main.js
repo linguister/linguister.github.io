@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Add hover effects to section cards
+  // Add hover effects to section cards with mouse-following gradient
   const cards = document.querySelectorAll('.section-card');
   cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -79,6 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     card.addEventListener('mouseleave', function() {
       this.style.transform = 'translateY(0) scale(1)';
+    });
+
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      // Update the gradient position based on mouse coordinates
+      const isCuchilleras = this.classList.contains('cuchilleras');
+      const accentColor = isCuchilleras ? 'var(--cuchilleras-accent)' : 'var(--flipar-accent)';
+
+      this.style.setProperty('--mouse-x', `${x}%`);
+      this.style.setProperty('--mouse-y', `${y}%`);
     });
   });
 

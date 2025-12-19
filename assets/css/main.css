@@ -204,7 +204,7 @@ body {
 }
 
 .section-card.cuchilleras::before {
-  background: radial-gradient(circle at top right, var(--cuchilleras-accent), transparent);
+  background: radial-gradient(circle at var(--mouse-x, 100%) var(--mouse-y, 0%), var(--cuchilleras-accent), transparent);
 }
 
 .section-card.cuchilleras .section-icon {
@@ -236,7 +236,7 @@ body {
 }
 
 .section-card.flipar::before {
-  background: radial-gradient(circle at top right, var(--flipar-accent), transparent);
+  background: radial-gradient(circle at var(--mouse-x, 100%) var(--mouse-y, 0%), var(--flipar-accent), transparent);
 }
 
 .section-card.flipar .section-icon {
