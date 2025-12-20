@@ -643,13 +643,18 @@ body:not(.landing-page) .landing-sections-grid {
    ======================================== */
 
 @media (max-width: 768px) {
-  /* Header: Two rows (120px total) */
+  /* Header: Two rows (120px total) when not on landing, one row (60px) on landing */
   .site-header {
-    height: 120px;
+    height: 60px;
     flex-direction: column;
     align-items: stretch;
     padding: 0;
     transition: height 0.3s ease;
+  }
+
+  /* Two rows when not on landing page */
+  body:not(.landing-page) .site-header {
+    height: 60px;
   }
 
   /* Row 1: Title and subtitle */
@@ -687,7 +692,7 @@ body:not(.landing-page) .landing-sections-grid {
     overflow: hidden;
   }
 
-  /* Row 2: Navigation cards */
+  /* Row 2: Navigation cards - hidden on landing page */
   .sections-grid {
     position: fixed;
     top: 60px;
@@ -697,10 +702,11 @@ body:not(.landing-page) .landing-sections-grid {
     height: 60px;
     gap: 16px;
     padding: 8px 16px;
-    background: var(--gray-light);
-    border-top: 1px solid var(--gray);
+    background: transparent; /* Transparent background */
+    border-top: none; /* No border */
     z-index: 1001;
     transition: all 0.3s ease;
+    display: none; /* Hidden by default on mobile landing page */
   }
 
   /* Show navigation cards on mobile when not on landing */
@@ -712,7 +718,7 @@ body:not(.landing-page) .landing-sections-grid {
   .landing-sections-grid {
     flex-direction: column;
     gap: 24px;
-    margin-top: 32px;
+    margin-top: 0;
     padding: 16px;
   }
 
@@ -740,7 +746,14 @@ body:not(.landing-page) .landing-sections-grid {
   }
 
   /* Content padding to account for fixed header */
-  .landing-container,
+  /* Landing page only needs padding for single row (60px header + margin) */
+  .landing-container {
+    padding-top: 80px;
+    transition: padding-top 0.3s ease;
+  }
+
+  /* Section pages need padding for two rows (120px header + margin) */
+  body:not(.landing-page) .landing-container,
   .cuchilleras-content,
   .flipar-content {
     padding-top: 140px;
@@ -775,7 +788,12 @@ body:not(.landing-page) .landing-sections-grid {
   }
 
   .landing-hero {
-    gap: 60px;
+    gap: 40px;
+  }
+
+  .landing-cta {
+    gap: 10px;
+    margin-bottom: -10px;
   }
 
   /* ========================================
@@ -815,7 +833,7 @@ body:not(.landing-page) .landing-sections-grid {
     overflow: hidden;
   }
 
-  /* Move cards to right side of row 1 */
+  /* Move cards to right side of row 1 when scrolled */
   .sections-grid.scrolled {
     top: 0;
     left: auto;
@@ -824,6 +842,11 @@ body:not(.landing-page) .landing-sections-grid {
     border-top: none;
     padding: 8px 16px;
     background-color: transparent;
+  }
+
+  /* Keep second row hidden on landing page even when scrolled */
+  body.landing-page .sections-grid.scrolled {
+    display: none;
   }
 
   /* Adjust content padding for compact header */
