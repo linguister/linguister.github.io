@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const sectionContents = document.querySelectorAll('.section-content');
   const headerTitle = document.querySelector('.site-header .landing-title');
 
+  // Set initial state to landing page
+  document.body.classList.add('landing-page');
+
   // Card click handler - shows section content
   cards.forEach(card => {
     card.addEventListener('click', function() {
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Update body class for section-specific styling
+        // Remove landing-page class and add section-specific class
+        document.body.classList.remove('landing-page');
         document.body.className = sectionName + '-page';
 
         // Update card states (active/inactive)
@@ -74,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show landing view
       landingView.style.display = 'flex';
 
-      // Reset body class
-      document.body.className = '';
+      // Reset body class to landing page
+      document.body.className = 'landing-page';
 
       // Remove active/inactive states from cards
       cards.forEach(c => {

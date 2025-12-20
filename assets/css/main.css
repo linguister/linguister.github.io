@@ -234,7 +234,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 60px;
   animation: fadeInUp 1.2s ease-out;
 }
 
@@ -310,10 +310,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   opacity: 0.7;
   transition: opacity 0.3s ease;
   animation: floatUp 2s ease-in-out infinite;
+  overflow: visible;
+  padding-bottom: 0.5rem;
+  margin-bottom: -20px;
 }
 
 .landing-cta:hover {
@@ -343,8 +346,11 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
-  line-height: 1;
+  color: var(--cuchilleras-primary); /* Fallback color */
+  line-height: 1.2;
+  display: block;
+  padding: 0.2rem 0;
+  overflow: visible;
 }
 
 /* ========================================
@@ -359,12 +365,52 @@ body {
   right: 0;
   width: 50%;
   height: 70px;
-  display: flex;
+  display: none; /* Hidden on landing page */
   align-items: center;
   justify-content: center;
   gap: 32px;
   padding: 0 32px;
   z-index: 1000;
+}
+
+/* Show navigation cards when not on landing page */
+body:not(.landing-page) .sections-grid {
+  display: flex;
+}
+
+/* Landing Page Cards - Below content */
+.landing-sections-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 0;
+  padding: 32px;
+  animation: fadeInUp 1.4s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Hide landing cards when not on landing page */
+body:not(.landing-page) .landing-sections-grid {
+  display: none;
+}
+
+/* Landing page cards - larger and more prominent */
+.landing-sections-grid .section-card {
+  padding: 24px 48px;
+  min-width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.landing-sections-grid .section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.landing-sections-grid .section-card .section-title {
+  font-size: 36px;
 }
 
 /* Base card styles */
@@ -655,6 +701,29 @@ body {
     border-top: 1px solid var(--gray);
     z-index: 1001;
     transition: all 0.3s ease;
+  }
+
+  /* Show navigation cards on mobile when not on landing */
+  body:not(.landing-page) .sections-grid {
+    display: flex;
+  }
+
+  /* Landing page cards on mobile - stack vertically */
+  .landing-sections-grid {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+    padding: 16px;
+  }
+
+  .landing-sections-grid .section-card {
+    width: 100%;
+    max-width: 320px;
+    padding: 20px 40px;
+  }
+
+  .landing-sections-grid .section-card .section-title {
+    font-size: 32px;
   }
 
   .section-card {
