@@ -199,6 +199,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollY = window.scrollY;
     const header = document.querySelector('.site-header');
     const sectionsGrid = document.querySelector('.sections-grid');
+    const cuchillerasTitle = document.querySelector('.section-card.cuchilleras .section-title');
+    const fliparTitle = document.querySelector('.section-card.flipar .section-title');
 
     // Only apply transformation on mobile devices
     if (window.innerWidth <= 768) {
@@ -208,11 +210,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sectionsGrid) {
           sectionsGrid.classList.add('scrolled');
         }
+
+        // Change card text to abbreviated versions
+        if (cuchillerasTitle) {
+          cuchillerasTitle.innerHTML = 'C';
+        }
+        if (fliparTitle) {
+          fliparTitle.textContent = 'F';
+        }
       } else {
         // Remove scrolled state when at top
         header.classList.remove('scrolled');
         if (sectionsGrid) {
           sectionsGrid.classList.remove('scrolled');
+        }
+
+        // Restore full card text
+        if (cuchillerasTitle) {
+          cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+        }
+        if (fliparTitle) {
+          fliparTitle.textContent = 'FLIPAR';
         }
       }
     } else {
@@ -220,6 +238,14 @@ document.addEventListener('DOMContentLoaded', function() {
       header.classList.remove('scrolled');
       if (sectionsGrid) {
         sectionsGrid.classList.remove('scrolled');
+      }
+
+      // Restore full text on desktop
+      if (cuchillerasTitle) {
+        cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+      }
+      if (fliparTitle) {
+        fliparTitle.textContent = 'FLIPAR';
       }
     }
   }

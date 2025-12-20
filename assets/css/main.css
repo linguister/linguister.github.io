@@ -504,23 +504,23 @@ body {
 
 .section-card.cuchilleras .section-title {
   color: var(--cuchilleras-primary);
-  text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  /* text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%); */
   transition: text-shadow 0.3s ease;
 }
 
 .section-card.cuchilleras:hover .section-title {
-  text-shadow: 1px 1px 2px color-mix(in srgb, var(--cuchilleras-primary), transparent 50%);
+  /* text-shadow: 1px 1px 2px color-mix(in srgb, var(--cuchilleras-primary), transparent 50%); */
 }
 
 .section-card.cuchilleras .section-title .digraph {
   color: var(--cuchilleras-accent);
   /* -webkit-text-stroke: 1px var(--cuchilleras-border); */
-  text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%);
+  /* text-shadow: 2px 2px 4px color-mix(in srgb, var(--cuchilleras-primary), transparent 80%); */
   transition: text-shadow 0.3s ease;
 }
 
 .section-card.cuchilleras:hover .section-title .digraph {
-  text-shadow: 1px 1px 2px color-mix(in srgb, var(--cuchilleras-primary), transparent 50%);
+  /* text-shadow: 1px 1px 2px color-mix(in srgb, var(--cuchilleras-primary), transparent 50%); */
 }
 
 /* ========================================
@@ -546,12 +546,12 @@ body {
 
 .section-card.flipar .section-title {
   color: var(--flipar-primary);
-  text-shadow: 2px 2px 4px color-mix(in srgb, var(--flipar-primary), transparent 80%);
+  /* text-shadow: 2px 2px 4px color-mix(in srgb, var(--flipar-primary), transparent 80%); */
   transition: text-shadow 0.3s ease;
 }
 
 .section-card.flipar:hover .section-title {
-  text-shadow: 1px 1px 2px color-mix(in srgb, var(--flipar-primary), transparent 50%);
+  /* text-shadow: 1px 1px 2px color-mix(in srgb, var(--flipar-primary), transparent 50%); */
 }
 
 /* ========================================
@@ -724,9 +724,9 @@ body {
 
   /* Compact title */
   .site-header.scrolled .landing-title {
-    font-size: 16px;
-    padding: 0 12px;
-    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
+    font-size: 22px;
+    padding: 0 16px;
+    /* clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%); */
   }
 
   .site-header.scrolled .title-gradient,
@@ -735,7 +735,7 @@ body {
   }
 
   .site-header.scrolled .title-black {
-    left: 12px;
+    left: 16px;
   }
 
   /* Hide subtitle */
