@@ -655,7 +655,12 @@ body:not(.landing-page) .landing-sections-grid {
   background: white;
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(91, 111, 163, 0.1);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-border), transparent 80%);
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+.cuchilleras-content .content-section:hover {
+  box-shadow: 0 2px 5px var(--cuchilleras-primary) !important;
 }
 
 .cuchilleras-content .content-section h2 {
@@ -705,14 +710,14 @@ body:not(.landing-page) .landing-sections-grid {
   border-radius: 50px;
   font-weight: 500;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(91, 111, 163, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  box-shadow: none;
 }
 
 .download-btn:hover {
   background: var(--cuchilleras-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(91, 111, 163, 0.3);
+  box-shadow: 0 2px 5px var(--cuchilleras-primary);
   color: white;
 }
 
