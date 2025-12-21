@@ -951,10 +951,15 @@ input:checked + .slider:before {
 /* Slider controls */
 .slider-control {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
-  width: 80%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.slider-control .slider-bar {
+  flex: 0 1 50%;
+  min-width: 0;
 }
 
 .slider-label {
@@ -971,6 +976,9 @@ input:checked + .slider:before {
   color: var(--gray-dark);
   opacity: 0.5;
   user-select: none;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
 }
 
 .slider-bar {
