@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const sectionContents = document.querySelectorAll('.section-content');
   const headerTitle = document.querySelector('.site-header .landing-title');
 
+  // Set initial state to landing page
+  document.body.classList.add('landing-page');
+
   // Card click handler - shows section content
   cards.forEach(card => {
     card.addEventListener('click', function() {
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Update body class for section-specific styling
+        // Remove landing-page class and add section-specific class
+        document.body.classList.remove('landing-page');
         document.body.className = sectionName + '-page';
 
         // Update card states (active/inactive)
@@ -74,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show landing view
       landingView.style.display = 'flex';
 
-      // Reset body class
-      document.body.className = '';
+      // Reset body class to landing page
+      document.body.className = 'landing-page';
 
       // Remove active/inactive states from cards
       cards.forEach(c => {
@@ -199,6 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollY = window.scrollY;
     const header = document.querySelector('.site-header');
     const sectionsGrid = document.querySelector('.sections-grid');
+    const cuchillerasTitle = document.querySelector('.section-card.cuchilleras .section-title');
+    const fliparTitle = document.querySelector('.section-card.flipar .section-title');
 
     // Only apply transformation on mobile devices
     if (window.innerWidth <= 768) {
@@ -208,11 +215,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sectionsGrid) {
           sectionsGrid.classList.add('scrolled');
         }
+
+        // Change card text to abbreviated versions
+        if (cuchillerasTitle) {
+          cuchillerasTitle.innerHTML = 'C';
+        }
+        if (fliparTitle) {
+          fliparTitle.textContent = 'F';
+        }
       } else {
         // Remove scrolled state when at top
         header.classList.remove('scrolled');
         if (sectionsGrid) {
           sectionsGrid.classList.remove('scrolled');
+        }
+
+        // Restore full card text
+        if (cuchillerasTitle) {
+          cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+        }
+        if (fliparTitle) {
+          fliparTitle.textContent = 'FLIPAR';
         }
       }
     } else {
@@ -220,6 +243,14 @@ document.addEventListener('DOMContentLoaded', function() {
       header.classList.remove('scrolled');
       if (sectionsGrid) {
         sectionsGrid.classList.remove('scrolled');
+      }
+
+      // Restore full text on desktop
+      if (cuchillerasTitle) {
+        cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+      }
+      if (fliparTitle) {
+        fliparTitle.textContent = 'FLIPAR';
       }
     }
   }

@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Explore the art of language creation with Cuchilleras font and FLIPAR IPA representation system">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/bg-circles.css">
 </head>
 <body>
 	<header class="site-header">
@@ -36,6 +37,36 @@
 	</div>
 
 	<div class="landing-container" id="landing-view">
+		<div class="moving-circles"></div>
+		<div class="landing-hero">
+			<div class="landing-quote">
+				<p class="quote-main">Un espacio para ordenar ideas y abrirse a otras.</p>
+				<p class="quote-secondary">Que el <em>status quo</em> no te limite.<br>La escritura está para adaptarse a las necesidades de sus usuarios.</p>
+			</div>
+			<div class="landing-cta">
+				<p class="cta-text">Explora nuevas ideas</p>
+				<div class="cta-arrow">↓</div>
+			</div>
+
+			<!-- Landing Page Cards - Only visible on landing page -->
+			<div class="landing-sections-grid">
+				<!-- Cuchilleras Section -->
+				<div class="section-card cuchilleras" data-section="cuchilleras">
+					<div class="section-card-content">
+						<h2 class="section-title">Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras</h2>
+						<p class="section-subtitle">La fuente que el español merece</p>
+					</div>
+				</div>
+
+				<!-- FLIPAR Section -->
+				<div class="section-card flipar" data-section="flipar">
+					<div class="section-card-content">
+						<h2 class="section-title">FLIPAR</h2>
+						<p class="section-subtitle">Representación lógica del <em>AFI</em></p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Cuchilleras Content Section -->
@@ -191,6 +222,7 @@
 		</section>
 	</main>
 
+	<script src="assets/js/bg-circles.js"></script>
 	<script src="assets/js/main.js"></script>
 </body>
 </html>

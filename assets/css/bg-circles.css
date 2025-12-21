@@ -1,0 +1,72 @@
+/* ============================================
+   MOVING CIRCLES BACKGROUND MODULE
+   CSS-only animated circles that move and fade
+   ============================================ */
+
+/* ============================================
+   TUNABLE VARIABLES - Modify these easily
+   ============================================ */
+:root {
+  --gradient-color-start: color-mix(in srgb, var(--cuchilleras-primary) 10%, transparent);
+  --gradient-color-end: color-mix(in srgb, var(--flipar-primary) 10%, transparent);
+  --circle-opacity: 0.1;
+  --circle-size: 200px;
+  --circle-duration: 5s;
+  --circle-speed: 80px; /* Distance traveled per second */
+  --circle-spawn-interval: 100ms; /* How often to check for spawning */
+  --circle-spawn-probability: 0.3; /* Probability (0-1) of spawning per check */
+}
+
+/* Ensure landing container is positioned */
+.landing-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Circle container */
+.moving-circles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Individual circle */
+.circle {
+  position: absolute;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  opacity: 0;
+  animation: moveAndFade var(--circle-duration) ease-in-out infinite;
+}
+
+/* Animation: grow, move, shrink, fade */
+@keyframes moveAndFade {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(var(--end-x), var(--end-y)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--end-x), var(--end-y)) scale(0);
+  }
+}
+
+/* Circle colors and positions will be set dynamically by JavaScript */
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .circle {
+    animation: none;
+    opacity: 0.05;
+  }
+}
