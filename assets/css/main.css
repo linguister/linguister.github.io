@@ -1089,7 +1089,19 @@ input[type="range"]:active::-moz-range-thumb {
 .example-text strong,
 .example-text .highlight {
   font-weight: 500;
+}
+
+/* Link styling */
+.cuchilleras-content a {
   color: var(--cuchilleras-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.cuchilleras-content a:hover {
+  color: var(--cuchilleras-secondary);
+  text-decoration: underline;
 }
 
 /* Image styling */
