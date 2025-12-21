@@ -1436,20 +1436,48 @@ input[type="range"]:active::-moz-range-thumb {
 
   .slider-control {
     width: 100%;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .slider-label {
     width: 100%;
     text-align: left;
     font-size: 1rem;
+    order: 1;
+    flex-basis: 100%;
+  }
+
+  .slider-min {
+    order: 2;
+    width: 35px;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-left: -0.5rem;
   }
 
   .slider-bar {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     height: 50px;
+    order: 3;
+    max-width: calc(100% - 70px);
+  }
+
+  .slider-max {
+    order: 4;
+    width: 35px;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-right: -0.5rem;
+  }
+
+  .slider-control .slider-bar {
+    flex: 1;
+    max-width: calc(100% - 70px);
   }
 
   input[type="range"] {
