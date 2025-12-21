@@ -61,6 +61,14 @@ document.addEventListener('DOMContentLoaded', function() {
             c.classList.add('inactive');
           }
         });
+
+        // Trigger slider position update for Cuchilleras section
+        if (sectionName === 'cuchilleras') {
+          setTimeout(() => {
+            const event = new Event('cuchilleras-visible');
+            window.dispatchEvent(event);
+          }, 50);
+        }
       }
     });
   });

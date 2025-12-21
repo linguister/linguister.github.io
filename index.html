@@ -424,9 +424,12 @@
 
 			// Function to update slider value position
 			function updateSliderValuePosition(slider, valueElement) {
+				const min = parseFloat(slider.min);
+				const max = parseFloat(slider.max);
+				const value = parseFloat(slider.value);
+				const percentage = (value - min) / (max - min);
 				const sliderRect = slider.getBoundingClientRect();
 				const thumbWidth = valueElement.offsetWidth;
-				const percentage = (slider.value - slider.min) / (slider.max - slider.min);
 				const thumbPosition = percentage * sliderRect.width - thumbWidth / 2;
 				valueElement.style.left = `${thumbPosition}px`;
 			}
@@ -455,10 +458,20 @@
 				fontTest.style.fontStretch = width + '%';
 			});
 
-			// Initial position update
-			updateSliderValuePosition(fontSizeInput, fontSizeValue);
-			updateSliderValuePosition(fontWeightInput, fontWeightValue);
-			updateSliderValuePosition(fontWidthInput, fontWidthValue);
+			// Function to update all slider positions
+			function updateAllSliderPositions() {
+				updateSliderValuePosition(fontSizeInput, fontSizeValue);
+				updateSliderValuePosition(fontWeightInput, fontWeightValue);
+				updateSliderValuePosition(fontWidthInput, fontWidthValue);
+			}
+
+			// Initial position update - with a small delay to ensure layout is complete
+			setTimeout(updateAllSliderPositions, 0);
+
+			// Listen for section visibility event
+			window.addEventListener('cuchilleras-visible', function() {
+				setTimeout(updateAllSliderPositions, 0);
+			});
 
 			// Dragging functionality for slider values
 			let isDraggingSize = false;
@@ -518,11 +531,7 @@
 			});
 
 			// Window resize handler to update slider positions
-			window.addEventListener('resize', function() {
-				updateSliderValuePosition(fontSizeInput, fontSizeValue);
-				updateSliderValuePosition(fontWeightInput, fontWeightValue);
-				updateSliderValuePosition(fontWidthInput, fontWidthValue);
-			});
+			window.addEventListener('resize', updateAllSliderPositions);
 		});
 	</script>
 </body>
