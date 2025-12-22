@@ -721,6 +721,13 @@ body:not(.landing-page) .landing-sections-grid {
   color: white;
 }
 
+/* Override general link styles for download buttons */
+.cuchilleras-content .download-btn,
+.cuchilleras-content .download-btn:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
 /* Alphabet and numbers tables */
 .table-container {
   overflow-x: auto;
@@ -1102,6 +1109,45 @@ input[type="range"]:active::-moz-range-thumb {
 .cuchilleras-content a:hover {
   color: var(--cuchilleras-secondary);
   text-decoration: underline;
+}
+
+/* Footnote styling */
+.footnote-ref {
+  margin-left: 2px;
+}
+
+.footnote-ref a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footnote-separator {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--cuchilleras-border), transparent 50%);
+}
+
+.footnotes {
+  font-size: 0.9rem;
+  color: var(--gray-dark);
+  line-height: 1.6;
+}
+
+.footnote {
+  margin-bottom: 0.5rem;
+}
+
+.footnote sup {
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--cuchilleras-primary);
+}
+
+.footnote-backref {
+  margin-left: 0.5rem;
+  text-decoration: none;
+  font-weight: normal;
 }
 
 /* Image styling */
