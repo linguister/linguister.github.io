@@ -795,7 +795,7 @@ body:not(.landing-page) .landing-sections-grid {
 .transparent-table {
   width: 75%;
   border-collapse: separate;
-  border-spacing: 0 8px;
+  border-spacing: 16px 0;
   margin: 24px auto;
 }
 
@@ -804,12 +804,30 @@ body:not(.landing-page) .landing-sections-grid {
   text-align: center;
   font-size: 19.2px;
   vertical-align: middle;
-  padding: 12px 16px !important;
+  padding: 16px !important;
   background-color: transparent !important;
   border: none;
 }
 
-.transparent-table tr {
+/* Desktop: columns with grouped background */
+.table-desktop td {
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--cuchilleras-primary), transparent 97%) 0%,
+    color-mix(in srgb, var(--cuchilleras-secondary), transparent 97%) 100%);
+  border-radius: 8px;
+  padding: 0 !important;
+}
+
+.table-desktop td > div {
+  padding: 12px 16px;
+}
+
+.table-desktop td > div:first-child {
+  margin-bottom: 8px;
+}
+
+/* Mobile: rows with grouped background */
+.table-mobile tr {
   background: linear-gradient(135deg,
     color-mix(in srgb, var(--cuchilleras-primary), transparent 97%) 0%,
     color-mix(in srgb, var(--cuchilleras-secondary), transparent 97%) 100%);
@@ -1499,6 +1517,7 @@ input[type="range"]:active::-moz-range-thumb {
 
   .table-mobile {
     display: table;
+    border-spacing: 0 8px;
   }
 
   .responsive-textarea {
