@@ -736,49 +736,66 @@ body:not(.landing-page) .landing-sections-grid {
   overflow-x: auto;
   width: 100%;
   margin: 32px 0;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--cuchilleras-primary), transparent 97%) 0%,
+    color-mix(in srgb, var(--cuchilleras-secondary), transparent 97%) 100%);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--cuchilleras-primary), transparent 92%);
 }
 
 .alphabet-table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: auto;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--cuchilleras-border), transparent 90%);
 }
 
 .alphabet-table td {
-  border: 1px solid color-mix(in srgb, var(--cuchilleras-primary), transparent 70%);
+  border-right: 1px solid color-mix(in srgb, var(--cuchilleras-primary), transparent 85%);
+  border-bottom: 1px solid color-mix(in srgb, var(--cuchilleras-primary), transparent 85%);
   padding: 12px 8px;
   white-space: nowrap;
   text-align: center;
   font-size: 19.2px;
-  transition: background-color 0.2s ease;
+}
+
+.alphabet-table td:last-child {
+  border-right: none;
+}
+
+.alphabet-table tr:last-child td {
+  border-bottom: none;
 }
 
 .alphabet-table td:first-child {
-  background-color: color-mix(in srgb, var(--cuchilleras-bg), white 50%) !important;
+  background-color: color-mix(in srgb, var(--cuchilleras-primary), transparent 90%) !important;
   font-weight: 500;
   font-size: 16px;
+  border-right: 2px solid color-mix(in srgb, var(--cuchilleras-primary), transparent 75%);
 }
 
 .alphabet-table td:not(:first-child) {
-  background-color: white !important;
+  background-color: var(--white) !important;
   font-family: var(--font-display);
-}
-
-.alphabet-table tr:hover td:not(:first-child) {
-  background-color: color-mix(in srgb, var(--cuchilleras-bg), white 80%) !important;
 }
 
 /* Highlighted digraph cells */
 .alphabet-table td.highlight {
   font-weight: 500;
   color: var(--cuchilleras-accent);
+  background-color: color-mix(in srgb, var(--cuchilleras-accent), transparent 95%) !important;
 }
 
 /* Transparent comparison table */
 .transparent-table {
   width: 75%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 8px;
   margin: 24px auto;
 }
 
@@ -787,9 +804,16 @@ body:not(.landing-page) .landing-sections-grid {
   text-align: center;
   font-size: 19.2px;
   vertical-align: middle;
-  padding: 8px 16px !important;
+  padding: 12px 16px !important;
   background-color: transparent !important;
   border: none;
+}
+
+.transparent-table tr {
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--cuchilleras-primary), transparent 97%) 0%,
+    color-mix(in srgb, var(--cuchilleras-secondary), transparent 97%) 100%);
+  border-radius: 8px;
 }
 
 .no-ligatures {
