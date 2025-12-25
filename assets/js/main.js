@@ -273,4 +273,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Handle window resize to adjust scroll behavior
   window.addEventListener('resize', handleScroll);
+
+  // ============================================
+  // TABLE SCROLL INDICATORS
+  // Shows gradient indicators for scrollable tables
+  // ============================================
+
+  function updateScrollIndicators(wrapper, container) {
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+    const scrollRight = scrollWidth - clientWidth - scrollLeft;
+
+    // Show left gradient if scrolled away from left edge (threshold: 5px)
+    if (scrollLeft > 5) {
+      wrapper.classList.add('scroll-left');
+    } else {
+      wrapper.classList.remove('scroll-left');
+    }
+
+    // Show right gradient if more content exists to the right (threshold: 5px)
+    if (scrollRight > 5) {
+      wrapper.classList.add('scroll-right');
+    } else {
+      wrapper.classList.remove('scroll-right');
+    }
+  }
+
+  // Initialize scroll indicators for all table wrappers
+  const tableWrappers = document.querySelectorAll('.table-wrapper');
+  tableWrappers.forEach(wrapper => {
+    const container = wrapper.querySelector('.table-container');
+    if (!container) return;
+
+    // Initial check
+    updateScrollIndicators(wrapper, container);
+
+    // Update on scroll
+    container.addEventListener('scroll', function() {
+      updateScrollIndicators(wrapper, container);
+    }, { passive: true });
+
+    // Update on window resize (table might become scrollable or not)
+    window.addEventListener('resize', function() {
+      updateScrollIndicators(wrapper, container);
+    });
+  });
+
+  // Re-check scroll indicators when Cuchilleras section becomes visible
+  window.addEventListener('cuchilleras-visible', function() {
+    setTimeout(() => {
+      tableWrappers.forEach(wrapper => {
+        const container = wrapper.querySelector('.table-container');
+        if (container) {
+          updateScrollIndicators(wrapper, container);
+        }
+      });
+    }, 50);
+  });
 });

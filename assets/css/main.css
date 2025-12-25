@@ -731,11 +731,58 @@ body:not(.landing-page) .landing-sections-grid {
   text-decoration: none !important;
 }
 
-/* Alphabet and numbers tables */
+/* Alphabet and numbers tables - wrapper with position context */
+.table-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 32px 0;
+}
+
+/* Scroll indicator gradients - fixed position overlays */
+.table-wrapper::before,
+.table-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Left gradient - indicates more content to the left */
+.table-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%);
+  border-radius: 16px 0 0 16px;
+}
+
+/* Right gradient - indicates more content to the right */
+.table-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%);
+  border-radius: 0 16px 16px 0;
+}
+
+/* Show gradients based on scroll state */
+.table-wrapper.scroll-left::before {
+  opacity: 1;
+}
+
+.table-wrapper.scroll-right::after {
+  opacity: 1;
+}
+
+/* Scrollable container */
 .table-container {
   overflow-x: auto;
   width: 100%;
-  margin: 32px 0;
   background: linear-gradient(135deg,
     color-mix(in srgb, var(--cuchilleras-primary), transparent 97%) 0%,
     color-mix(in srgb, var(--cuchilleras-secondary), transparent 97%) 100%);
