@@ -652,6 +652,29 @@ body:not(.landing-page) .landing-sections-grid {
    CUCHILLERAS SPECIFIC STYLES
    ======================================== */
 
+/* Cuchilleras header with logo */
+.cuchilleras-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cuchilleras-logo {
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto 1rem auto !important;
+  display: block;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+.cuchilleras-tagline {
+  font-size: 1.3rem;
+  color: var(--gray-dark);
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+}
+
 /* Content sections with spacing */
 .cuchilleras-content .content-section {
   margin-bottom: 64px;
@@ -1516,6 +1539,15 @@ input[type="range"]:active::-moz-range-thumb {
   /* ========================================
      CUCHILLERAS MOBILE RESPONSIVE
      ======================================== */
+
+  .cuchilleras-logo {
+    max-width: 100%;
+  }
+
+  .cuchilleras-tagline {
+    font-size: 1.1rem;
+    padding: 0 16px;
+  }
 
   .cuchilleras-content .content-section {
     padding: 32px 24px;
