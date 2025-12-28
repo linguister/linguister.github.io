@@ -263,6 +263,7 @@ body {
   font-weight: 400;
   font-style: italic;
   line-height: 1.4;
+  margin-top: 48px;
   margin-bottom: 32px;
   background: linear-gradient(135deg, var(--cuchilleras-primary), var(--flipar-primary));
   -webkit-background-clip: text;
