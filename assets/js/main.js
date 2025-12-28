@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Restore full card text
         if (cuchillerasTitle) {
-          cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+          cuchillerasTitle.innerHTML = 'Cuchilleras';
         }
         if (fliparTitle) {
           fliparTitle.textContent = 'FLIPAR';
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Restore full text on desktop
       if (cuchillerasTitle) {
-        cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+        cuchillerasTitle.innerHTML = 'Cuchilleras';
       }
       if (fliparTitle) {
         fliparTitle.textContent = 'FLIPAR';
