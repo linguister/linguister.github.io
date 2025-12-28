@@ -551,7 +551,7 @@ body:not(.landing-page) .landing-sections-grid {
 }
 
 /* ========================================
-   CUCHILLERAS CARD STYLING
+  CUCHILLERAS CARD STYLING
    ======================================== */
 
 .section-card.cuchilleras {
@@ -593,7 +593,7 @@ body:not(.landing-page) .landing-sections-grid {
 }
 
 /* ========================================
-   FLIPAR CARD STYLING
+  FLIPAR CARD STYLING
    ======================================== */
 
 .section-card.flipar {
@@ -624,8 +624,8 @@ body:not(.landing-page) .landing-sections-grid {
 }
 
 /* ========================================
-   SECTION CONTENT PAGES
-   Content shown when navigating to a section
+  SECTION CONTENT PAGES
+  Content shown when navigating to a section
    ======================================== */
 
 .section-content {
@@ -648,7 +648,7 @@ body:not(.landing-page) .landing-sections-grid {
 }
 
 /* ========================================
-   CUCHILLERAS SPECIFIC STYLES
+  CUCHILLERAS SPECIFIC STYLES
    ======================================== */
 
 /* Hero header with background image */
@@ -657,13 +657,15 @@ body:not(.landing-page) .landing-sections-grid {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100vw;
   min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   margin-top: 70px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .cuchilleras-hero::before {
@@ -1592,8 +1594,12 @@ input[type="range"]:active::-moz-range-thumb {
      ======================================== */
 
   .cuchilleras-hero {
-    min-height: 350px;
+    min-height: 250px;
     margin-top: 60px;
+    padding: 32px 16px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .cuchilleras-logo {
