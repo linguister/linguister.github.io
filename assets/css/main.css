@@ -713,6 +713,16 @@ body:not(.landing-page) .landing-sections-grid {
   padding-top: 64px;
 }
 
+/* Smooth fade-in animation for section content */
+.section-content {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section-content.active {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
 /* Content sections with spacing */
 .cuchilleras-content .content-section {
   margin-bottom: 64px;

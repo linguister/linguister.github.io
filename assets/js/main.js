@@ -39,10 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
         landingView.style.display = 'none';
         sectionContent.style.display = 'block';
 
+        // Reset animation by removing and re-adding active class
+        sectionContent.classList.remove('active');
+        // Force reflow to restart animation
+        void sectionContent.offsetWidth;
+        sectionContent.classList.add('active');
+
         // Hide other sections
         sectionContents.forEach(content => {
           if (content.id !== sectionName + '-content') {
             content.style.display = 'none';
+            content.classList.remove('active');
           }
         });
 
