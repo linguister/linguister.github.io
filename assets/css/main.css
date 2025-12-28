@@ -67,7 +67,7 @@
   --font-main: 'Cuchilleras', Georgia, 'Times New Roman', serif;
   --font-display: 'Cuchilleras', Georgia, 'Times New Roman', serif;
 
-  /* Base font size for rem to px conversion (16px = 16px) */
+  /* Base font size */
   font-size: 16px;
 }
 
@@ -644,48 +644,90 @@ body:not(.landing-page) .landing-sections-grid {
 .cuchilleras-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 64px 32px;
-  padding-top: 100px;
+  padding: 0;
 }
 
 /* ========================================
    CUCHILLERAS SPECIFIC STYLES
    ======================================== */
 
-/* Cuchilleras header with logo */
-.cuchilleras-header {
+/* Hero header with background image */
+.cuchilleras-hero {
+  background-image: url('../img/text_cuchilleras.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 70px;
+}
+
+.cuchilleras-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+    rgba(244, 247, 255, 0.75) 0%,
+    rgba(244, 247, 255, 0.95) 70%,
+    var(--cuchilleras-bg) 100%);
+  z-index: 1;
+}
+
+.cuchilleras-hero-inner {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 32px;
 }
 
 .cuchilleras-logo {
-  max-width: 600px;
+  max-width: 700px;
+  width: 80%;
   height: auto;
-  margin: 0 auto 1rem auto !important;
+  margin: 0 auto 24px auto !important;
   display: block;
   box-shadow: none !important;
   border-radius: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .cuchilleras-tagline {
-  font-size: 1.3rem;
+  font-size: 28px;
   color: var(--gray-dark);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   margin: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Content wrapper */
+.cuchilleras-content > .content-section:first-of-type {
+  margin-top: 0;
+  padding-top: 64px;
 }
 
 /* Content sections with spacing */
 .cuchilleras-content .content-section {
   margin-bottom: 64px;
+  margin-left: 32px;
+  margin-right: 32px;
   background: white;
   padding: 48px;
   border-radius: 20px;
+  border: 2px solid color-mix(in srgb, var(--cuchilleras-border), transparent 80%);
   box-shadow: 0 4px 10px color-mix(in srgb, var(--cuchilleras-border), transparent 80%);
-  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border 0.3s ease !important;
 }
 
 .cuchilleras-content .content-section:hover {
+  border: 2px solid color-mix(in srgb, var(--cuchilleras-primary), transparent 50%);
   box-shadow: 0 2px 5px var(--cuchilleras-primary) !important;
 }
 
@@ -1256,8 +1298,7 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 .footnotes {
-  font-size: 14.4px;
-  color: var(--gray-dark);
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -1540,18 +1581,25 @@ input[type="range"]:active::-moz-range-thumb {
      CUCHILLERAS MOBILE RESPONSIVE
      ======================================== */
 
+  .cuchilleras-hero {
+    min-height: 350px;
+    margin-top: 60px;
+  }
+
   .cuchilleras-logo {
     max-width: 100%;
+    width: 90%;
   }
 
   .cuchilleras-tagline {
-    font-size: 1.1rem;
-    padding: 0 16px;
+    font-size: 18px;
   }
 
   .cuchilleras-content .content-section {
     padding: 32px 24px;
     margin-bottom: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .cuchilleras-content .content-section h2 {
