@@ -39,10 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
         landingView.style.display = 'none';
         sectionContent.style.display = 'block';
 
+        // Reset animation by removing and re-adding active class
+        sectionContent.classList.remove('active');
+        // Force reflow to restart animation
+        void sectionContent.offsetWidth;
+        sectionContent.classList.add('active');
+
         // Hide other sections
         sectionContents.forEach(content => {
           if (content.id !== sectionName + '-content') {
             content.style.display = 'none';
+            content.classList.remove('active');
           }
         });
 
@@ -61,6 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
             c.classList.add('inactive');
           }
         });
+
+        // Trigger slider position update for Cuchilleras section
+        if (sectionName === 'cuchilleras') {
+          setTimeout(() => {
+            const event = new Event('cuchilleras-visible');
+            window.dispatchEvent(event);
+          }, 50);
+        }
       }
     });
   });
@@ -232,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Restore full card text
         if (cuchillerasTitle) {
-          cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+          cuchillerasTitle.innerHTML = 'Cuchilleras';
         }
         if (fliparTitle) {
           fliparTitle.textContent = 'FLIPAR';
@@ -247,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Restore full text on desktop
       if (cuchillerasTitle) {
-        cuchillerasTitle.innerHTML = 'Cu<span class="digraph">ch</span>i<span class="digraph">ll</span>eras';
+        cuchillerasTitle.innerHTML = 'Cuchilleras';
       }
       if (fliparTitle) {
         fliparTitle.textContent = 'FLIPAR';
@@ -265,4 +280,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Handle window resize to adjust scroll behavior
   window.addEventListener('resize', handleScroll);
+
+  // ============================================
+  // TABLE SCROLL INDICATORS
+  // Shows gradient indicators for scrollable tables
+  // ============================================
+
+  function updateScrollIndicators(wrapper, container) {
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+    const scrollRight = scrollWidth - clientWidth - scrollLeft;
+
+    // Show left gradient if scrolled away from left edge (threshold: 5px)
+    if (scrollLeft > 5) {
+      wrapper.classList.add('scroll-left');
+    } else {
+      wrapper.classList.remove('scroll-left');
+    }
+
+    // Show right gradient if more content exists to the right (threshold: 5px)
+    if (scrollRight > 5) {
+      wrapper.classList.add('scroll-right');
+    } else {
+      wrapper.classList.remove('scroll-right');
+    }
+  }
+
+  // Initialize scroll indicators for all table wrappers
+  const tableWrappers = document.querySelectorAll('.table-wrapper');
+  tableWrappers.forEach(wrapper => {
+    const container = wrapper.querySelector('.table-container');
+    if (!container) return;
+
+    // Initial check
+    updateScrollIndicators(wrapper, container);
+
+    // Update on scroll
+    container.addEventListener('scroll', function() {
+      updateScrollIndicators(wrapper, container);
+    }, { passive: true });
+
+    // Update on window resize (table might become scrollable or not)
+    window.addEventListener('resize', function() {
+      updateScrollIndicators(wrapper, container);
+    });
+  });
+
+  // Re-check scroll indicators when Cuchilleras section becomes visible
+  window.addEventListener('cuchilleras-visible', function() {
+    setTimeout(() => {
+      tableWrappers.forEach(wrapper => {
+        const container = wrapper.querySelector('.table-container');
+        if (container) {
+          updateScrollIndicators(wrapper, container);
+        }
+      });
+    }, 50);
+  });
 });
