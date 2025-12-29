@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const sectionContent = document.getElementById(sectionName + '-content');
 
       if (sectionContent) {
+        // Scroll to top of page
+        window.scrollTo(0, 0);
+
         // Hide landing view and show selected section
         landingView.style.display = 'none';
         sectionContent.style.display = 'block';
@@ -85,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
     headerTitle.style.cursor = 'pointer';
     headerTitle.addEventListener('click', function(e) {
       e.preventDefault();
+
+      // Scroll to top of page
+      window.scrollTo(0, 0);
 
       // Hide all section contents
       sectionContents.forEach(content => {
